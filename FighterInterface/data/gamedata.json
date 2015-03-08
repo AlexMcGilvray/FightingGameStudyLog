@@ -1,0 +1,10 @@
+{
+"global_data": {
+    "gravity": 13.7,
+	"game_update_rate": 60
+    },
+
+"level_global_data": {
+    "ground_plany_y": 700.0
+    }
+}

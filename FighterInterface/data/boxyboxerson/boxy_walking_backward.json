@@ -1,0 +1,40 @@
+{
+
+"looping": true,
+
+"frame_data": 
+	[  
+		{
+		"lifespan"		: 2,
+		"hitbox_body"	: 
+			{  
+				"x"		: 10,
+				"y"		: 10,
+				"width"	: 150,
+				"height": 320 
+			} 
+		},
+		 
+		{
+		"lifespan"		: 6,
+		"hitbox_body"	: 
+			{  
+				"x"		: 10,
+				"y"		: 10,
+				"width"	: 150,
+				"height": 320 
+			} 
+		},
+		 
+		{
+		"lifespan"		: 14,
+		"hitbox_body"	: 
+			{  
+				"x"		: 10,
+				"y"		: 10,
+				"width"	: 150,
+				"height": 320 
+			} 
+		}
+	] 
+}

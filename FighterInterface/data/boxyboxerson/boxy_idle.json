@@ -1,0 +1,70 @@
+{
+
+"looping": true,
+
+"frame_data": 
+	[  
+		{
+		"lifespan"		: 3,
+		"hitbox_body"	: 
+			{  
+				"x"		: 10,
+				"y"		: 10,
+				"width"	: 150,
+				"height": 350 
+			} 
+		},
+		 
+		{
+		"lifespan"		: 2,
+		"hitbox_body"	: 
+			{  
+				"x"		: 10,
+				"y"		: 10,
+				"width"	: 150,
+				"height": 348 
+			} 
+		},
+		 
+		{
+		"lifespan"		: 4,
+		"hitbox_body"	: 
+			{  
+				"x"		: 10,
+				"y"		: 10,
+				"width"	: 150,
+				"height": 351 
+			} 
+		},
+		{
+		"lifespan"		: 6,
+		"hitbox_body"	: 
+			{  
+				"x"		: 10,
+				"y"		: 10,
+				"width"	: 150,
+				"height": 357
+			} 
+		},
+		{
+		"lifespan"		: 5,
+		"hitbox_body"	: 
+			{  
+				"x"		: 10,
+				"y"		: 10,
+				"width"	: 150,
+				"height": 356 
+			} 
+		},
+		{
+		"lifespan"		: 3,
+		"hitbox_body"	: 
+			{  
+				"x"		: 10,
+				"y"		: 10,
+				"width"	: 150,
+				"height": 352 
+			} 
+		}
+	] 
+}

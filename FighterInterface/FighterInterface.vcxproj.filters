@@ -1,0 +1,188 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="Interfaces">
+      <UniqueIdentifier>{cf26bc42-7c4a-4c80-8220-26ca9a86a0d6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Package">
+      <UniqueIdentifier>{6989be43-ac4c-4f4a-88c6-2aca7880d198}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Data">
+      <UniqueIdentifier>{809628bd-3a28-452a-a9e5-5826925c4ffb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Data\CharacterStateDefinitions">
+      <UniqueIdentifier>{ceaf1ac6-b44c-42f0-be6e-9be1f54d3279}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Data\CharacterStateDefinitions\BoxyBoxerson">
+      <UniqueIdentifier>{bd011bda-b2ce-49ab-88c8-32c54fc62ff2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Source Files\StateImplementations">
+      <UniqueIdentifier>{931782ea-aabf-4f6b-a0b1-26046509409c}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Main.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Collision.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Sprite.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="package\imgui.cpp">
+      <Filter>Package</Filter>
+    </ClCompile>
+    <ClCompile Include="GameSystems.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="MenuState.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Render.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="GameState.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Character.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Input.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="CharacterState.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="CharacterStateFactory.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="GameData.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Utilities.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Debug.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="UFrameTimer.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="CharacterData.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="IRenderable.h">
+      <Filter>Interfaces</Filter>
+    </ClInclude>
+    <ClInclude Include="IUpdatable.h">
+      <Filter>Interfaces</Filter>
+    </ClInclude>
+    <ClInclude Include="Collision.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Sprite.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="package\imconfig.h">
+      <Filter>Package</Filter>
+    </ClInclude>
+    <ClInclude Include="package\imgui.h">
+      <Filter>Package</Filter>
+    </ClInclude>
+    <ClInclude Include="package\stb_textedit.h">
+      <Filter>Package</Filter>
+    </ClInclude>
+    <ClInclude Include="package\stb_image.h">
+      <Filter>Package</Filter>
+    </ClInclude>
+    <ClInclude Include="Input.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="GameSystems.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="MenuState.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Render.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="RenderBuffer.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="GameState.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Character.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="GameData.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="CharacterState.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="CharacterStateFactory.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Utilities.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Debug.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="UStack.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="UFrameTimer.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="CharacterData.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="data\gamedata.json">
+      <Filter>Data</Filter>
+    </None>
+    <None Include="data\boxyboxerson\boxy_idle.json">
+      <Filter>Data\CharacterStateDefinitions\BoxyBoxerson</Filter>
+    </None>
+    <None Include="data\boxyboxerson\boxy_standattack1.json">
+      <Filter>Data\CharacterStateDefinitions\BoxyBoxerson</Filter>
+    </None>
+    <None Include="data\boxyboxerson\boxy_walkingforward.json">
+      <Filter>Data\CharacterStateDefinitions\BoxyBoxerson</Filter>
+    </None>
+    <None Include="data\boxyboxerson\boxy_walking_backward.json">
+      <Filter>Data\CharacterStateDefinitions\BoxyBoxerson</Filter>
+    </None>
+    <None Include="data\boxyboxerson\boxy_hit_stun.json">
+      <Filter>Data\CharacterStateDefinitions\BoxyBoxerson</Filter>
+    </None>
+    <None Include="data\boxyboxerson\boxy_duck.json">
+      <Filter>Data\CharacterStateDefinitions\BoxyBoxerson</Filter>
+    </None>
+    <None Include="data\boxyboxerson\boxy_jump_up.json">
+      <Filter>Data\CharacterStateDefinitions\BoxyBoxerson</Filter>
+    </None>
+    <None Include="data\boxyboxerson\boxy_character_data.json">
+      <Filter>Data\CharacterStateDefinitions\BoxyBoxerson</Filter>
+    </None>
+  </ItemGroup>
+</Project>
