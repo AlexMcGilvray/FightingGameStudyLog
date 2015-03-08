@@ -8,23 +8,21 @@
 
 namespace GameSystems
 {
+	 
 	GLFWwindow* sWindow; 
 	void UpdateGlobalGUI();
 	void UpdateImGui();
 	void InitImGui();
 	static void ImImpl_RenderDrawLists(ImDrawList** const cmd_lists, int cmd_lists_count);
 	static GLuint fontTex;
-	bool showConsole = false; 
-
+	bool showConsole = false;  
 	State * mCurrentState;
 
 
 	//right now we'll just focus one one state at a time. In the future we can look at a state stack if we need one. 
 	//std::vector<State> mStates; 
 	//void PushState();
-	//void PopState();
-
-
+	//void PopState(); 
 	void ChangeState(State * newState)
 	{
 		mCurrentState = newState; 
@@ -47,27 +45,17 @@ namespace GameSystems
 
 	void State::UpdateGUI() { }
 
-	void State::Init()
-	{
-
-	}
+	void State::Init() { }
 
 	void InitGameSystems()
 	{
 		//glfwSetErrorCallback(glfw_error_callback);
-
 		if (!glfwInit())
 			exit(1);
-
 		glfwWindowHint(GLFW_RESIZABLE, GL_FALSE);
 		sWindow = glfwCreateWindow(1280, 720, "Fighter Interface", NULL, NULL);
 		glfwMakeContextCurrent(sWindow);
-		//glfwSetKeyCallback(window, glfw_key_callback);
-		//glfwSetScrollCallback(window, glfw_scroll_callback);
-		//glfwSetCharCallback(window, glfw_char_callback);
-
 		glewInit();
-
 		GameData::PopulateGameDataFromFile();
 		Render::Init();
 		InitImGui();
@@ -78,7 +66,6 @@ namespace GameSystems
 		const double desiredUpdateTime = GameData::GameGlobalValues::FrameDuration();
 		double timeSinceLastUpdate = 0;
 		double currentUpdateTime = 0;
-		
 		const int catchupThreshold = 3; // if the update gets too far behind we need a faster computer :p
 		bool hasUpdatedOnce = false; //garbage, get rid of this when you refactor this whole function
 		while (!glfwWindowShouldClose(sWindow))
@@ -122,9 +109,6 @@ namespace GameSystems
 			} 
 			currentUpdateTime = glfwGetTime() - currentUpdateTime;
 			timeSinceLastUpdate += currentUpdateTime;
-
-			//timeSinceLastUpdate
-		
 		}
 	}
 
@@ -135,16 +119,13 @@ namespace GameSystems
 		double frameTime;
 		while (!glfwWindowShouldClose(sWindow))
 		{ 
-			 frameTime = glfwGetTime();
+			frameTime = glfwGetTime();
 			glfwPollEvents();
-			
 			// Rendering
 			glViewport(0, 0, 1280, 720);
 			glClearColor(0.8f, 0.6f, 0.6f, 1.0f);
 			glClear(GL_COLOR_BUFFER_BIT); 
-			 
 			UpdateImGui();
-			
 			UpdateGlobalGUI();
 			if (mCurrentState)
 			{ 
@@ -152,19 +133,15 @@ namespace GameSystems
 				mCurrentState->Render();
 				mCurrentState->UpdateGUI();
 			}
-
 			Render::Render();
-
 			if (glfwGetKey(sWindow,GLFW_KEY_1))
 			{
 				showConsole = !showConsole;
 			}
-
 			if (showConsole)
 			{
 				ImGui::Render();
 			}
-
 			glfwSwapBuffers(sWindow);
 			frameTime = glfwGetTime() - frameTime;
 			printf("time for frame is %f \n", frameTime);
@@ -185,13 +162,11 @@ namespace GameSystems
 	void UpdateImGui()
 	{
 		ImGuiIO& io = ImGui::GetIO();
-
 		// Setup timestep
 		static double time = 0.0f;
 		const double current_time =  glfwGetTime();
 		io.DeltaTime = (float)(current_time - time);
 		time = current_time;
-
 		// Setup inputs
 		// (we already got mouse wheel, keyboard keys & characters from glfw callbacks polled in glfwPollEvents())
 		double mouse_x, mouse_y;
@@ -199,10 +174,8 @@ namespace GameSystems
 		io.MousePos = ImVec2((float)mouse_x, (float)mouse_y);                           // Mouse position, in pixels (set to -1,-1 if no mouse / on another screen, etc.)
 		io.MouseDown[0] = glfwGetMouseButton(sWindow, GLFW_MOUSE_BUTTON_LEFT) != 0;
 		io.MouseDown[1] = glfwGetMouseButton(sWindow, GLFW_MOUSE_BUTTON_RIGHT) != 0;
-
 		// Start the frame
 		ImGui::NewFrame();
-
 		ImGui::Text("Mouse X : %f , Mouse Y : %f ", mouse_x,mouse_y);
 	}
 
@@ -307,5 +280,4 @@ namespace GameSystems
 	{
 		return sWindow;
 	}
-
 }
