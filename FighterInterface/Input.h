@@ -52,13 +52,7 @@ namespace Input
 		virtual void DebugDraw();
 	private:
 
-	};
-
-	//class JoystickController : public IController
-	//{
-	//public:
-	//	virtual InputInfo Poll();
-	//}; 
+	}; 
 
 	class KeyboardController : public IController
 	{
@@ -80,10 +74,7 @@ namespace Input
 			KeyboardInfo(KeyState state, Key key):
 				state(state),
 				key(key)
-			{
-
-			}
-	 
+			{ } 
 			Key key; //physical key
 			KeyState state; //state of the physical key
 		}; 
@@ -104,8 +95,7 @@ namespace Input
 		KeyboardInfo mappingInfo[FINAL_VIRTUAL_KEY_ENUM_VALUE];  
 	}; 
 
-	void Init();
-
+	void Init(); 
 	IController * GetController(int playerNum);
 	void SetController(IController * controller, int playerNum);
 	//quick factory methods to create various types of controllers 

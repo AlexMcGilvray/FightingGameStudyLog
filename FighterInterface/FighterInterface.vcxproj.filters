@@ -31,6 +31,12 @@
     <Filter Include="Source Files\StateImplementations">
       <UniqueIdentifier>{931782ea-aabf-4f6b-a0b1-26046509409c}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\Input">
+      <UniqueIdentifier>{b10c24cb-3d6d-4681-bfb3-ccf96cb42457}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Input">
+      <UniqueIdentifier>{d33f7d66-9d43-43a5-9a57-e42890775858}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Main.cpp">
@@ -60,9 +66,6 @@
     <ClCompile Include="Character.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Input.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="CharacterState.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -83,6 +86,9 @@
     </ClCompile>
     <ClCompile Include="CharacterData.cpp">
       <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Input.cpp">
+      <Filter>Source Files\Input</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -109,9 +115,6 @@
     </ClInclude>
     <ClInclude Include="package\stb_image.h">
       <Filter>Package</Filter>
-    </ClInclude>
-    <ClInclude Include="Input.h">
-      <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="GameSystems.h">
       <Filter>Header Files</Filter>
@@ -154,6 +157,9 @@
     </ClInclude>
     <ClInclude Include="CharacterData.h">
       <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Input.h">
+      <Filter>Header Files\Input</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
