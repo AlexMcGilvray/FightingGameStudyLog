@@ -74,13 +74,3 @@ IController * Input::CreateDefaultKeyboardControllerPlayer2()
 	controller->MapKeyToVirtualKey(GLFW_KEY_P,InputValue::START);
 	return controller;
 } 
-
-Input::VirtualInput::InputInfo Input::JoystickController::Poll()
-{
-	throw std::logic_error("The method or operation is not implemented.");
-}
-
-void Input::JoystickController::DebugDraw()
-{
-	throw std::logic_error("The method or operation is not implemented.");
-}

@@ -96,6 +96,7 @@
     <ClCompile Include="GameData.cpp" />
     <ClCompile Include="GameState.cpp" />
     <ClCompile Include="Input.cpp" />
+    <ClCompile Include="JoystickController.cpp" />
     <ClCompile Include="KeyboardController.cpp" />
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="MenuState.cpp" />
@@ -118,6 +119,7 @@
     <ClInclude Include="Input.h" />
     <ClInclude Include="IRenderable.h" />
     <ClInclude Include="IUpdatable.h" />
+    <ClInclude Include="JoystickController.h" />
     <ClInclude Include="KeyboardController.h" />
     <ClInclude Include="MenuState.h" />
     <ClInclude Include="package\imconfig.h" />

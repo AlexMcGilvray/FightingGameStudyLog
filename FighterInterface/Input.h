@@ -31,8 +31,7 @@ namespace Input
 		{
 			InputState inputMapping[FINAL_VIRTUAL_KEY_ENUM_VALUE]; 
 			//timestamp
-			//framestamp
-
+			//framestamp 
 		};
 	}
 	using namespace VirtualInput; 
@@ -43,16 +42,7 @@ namespace Input
 		virtual InputInfo Poll() = 0; 
 		virtual	void DebugDraw(){}
 	};
-
-	class JoystickController : public IController
-	{
-	public:
-		virtual InputInfo Poll(); 
-		virtual void DebugDraw();
-	private:
-
-	};  
-
+	 
 	void Init(); 
 	IController * GetController(int playerNum);
 	void SetController(IController * controller, int playerNum);

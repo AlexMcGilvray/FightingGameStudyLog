@@ -93,6 +93,9 @@
     <ClCompile Include="KeyboardController.cpp">
       <Filter>Source Files\Input</Filter>
     </ClCompile>
+    <ClCompile Include="JoystickController.cpp">
+      <Filter>Source Files\Input</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="IRenderable.h">
@@ -165,6 +168,9 @@
       <Filter>Header Files\Input</Filter>
     </ClInclude>
     <ClInclude Include="KeyboardController.h">
+      <Filter>Header Files\Input</Filter>
+    </ClInclude>
+    <ClInclude Include="JoystickController.h">
       <Filter>Header Files\Input</Filter>
     </ClInclude>
   </ItemGroup>
