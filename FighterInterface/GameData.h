@@ -3,7 +3,7 @@
 namespace GameData
 {
 	void PopulateGameDataFromFile();
-	void DrawDebugGameData();
+	void DrawDebugGameData(); 
 
 	namespace GameGlobalValues
 	{ 
@@ -11,13 +11,11 @@ namespace GameData
 		void Gravity(float val);
 		double FrameDuration();
 		void FrameDuration(double val);
-	}
+	} 
 
 	namespace LevelGlobalValues
 	{
 		float GroundPlaneY();
-		void GroundPlaneY(float val);
-
-	}
-
+		void GroundPlaneY(float val); 
+	} 
 }
