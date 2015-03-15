@@ -222,12 +222,12 @@ IController * Input::CreateDefaultKeyboardControllerPlayer2()
 //
 //}
 
-Input::VirtualInput::InputInfo Input::GamepadController::Poll()
+Input::VirtualInput::InputInfo Input::JoystickController::Poll()
 {
 	throw std::logic_error("The method or operation is not implemented.");
 }
 
-void Input::GamepadController::DebugDraw()
+void Input::JoystickController::DebugDraw()
 {
 	throw std::logic_error("The method or operation is not implemented.");
 }

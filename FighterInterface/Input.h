@@ -45,7 +45,7 @@ namespace Input
 		virtual	void DebugDraw(){}
 	};
 
-	class GamepadController : public IController
+	class JoystickController : public IController
 	{
 	public:
 		virtual InputInfo Poll(); 
