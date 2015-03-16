@@ -6,9 +6,7 @@ using namespace Input::VirtualInput;
 
 class KeyboardController : public IController
 {
-private: //local data definitions
-	//keyboard key typedef. Right now maps to the GLFW types
-	typedef int Key;
+private: //local data definitions 
 	//return values for various keyboard functions
 	enum KeyState
 	{

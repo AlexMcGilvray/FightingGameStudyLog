@@ -1,9 +1,10 @@
 #pragma once 
 #include <map>
 #include <string>
+#include "Keyboard.h"
  
 namespace Input
-{ 
+{  
 	namespace VirtualInput
 	{
 		enum InputState
