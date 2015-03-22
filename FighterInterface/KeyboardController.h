@@ -9,9 +9,8 @@ namespace Input
 	{
 		class KeyboardController : public IController
 		{
-		private: //local data definitions 
-			//return values for various keyboard functions
-			enum KeyState
+		private: //nested private data definitions  
+			enum KeyState //return values for various keyboard functions
 			{
 				KEY_NOT_FOUND = -2,
 				KEY_NOT_MAPPED = -1, 
