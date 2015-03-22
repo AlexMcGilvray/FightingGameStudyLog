@@ -35,7 +35,7 @@ namespace Input
 			//framestamp 
 		};
 	}
-	using namespace VirtualInput; 
+	using namespace VirtualInput;   
 
 	class IController
 	{

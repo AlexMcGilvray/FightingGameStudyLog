@@ -3,12 +3,13 @@
 #include <GLFW/glfw3.h>
 #include "package\imgui.h"
  
-Input::VirtualInput::InputInfo JoystickController::Poll()
+Input::InputInfo Input::Joystick::JoystickController::Poll()
 {
-	throw std::logic_error("The method or operation is not implemented.");
+	InputInfo result;
+	return result;
 }
 
-void JoystickController::DebugDraw()
+void Input::Joystick::JoystickController::DebugDraw()
 {
-	throw std::logic_error("The method or operation is not implemented.");
+
 }

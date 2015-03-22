@@ -1,15 +1,21 @@
 #pragma once
 #include "Input.h"
-
-using namespace Input;
+ 
 using namespace Input::VirtualInput; 
 
-
-class JoystickController : public IController
+namespace Input
 {
-public:
-	virtual InputInfo Poll(); 
-	virtual void DebugDraw();
-private:
-
-};  
+	namespace  Joystick
+	{
+		class JoystickController : public IController
+		{
+		public:
+			virtual InputInfo Poll();
+			virtual void DebugDraw();
+			int HardwareID();
+			void HardwareID(int val);
+		private:
+			int hardwareID;
+		};  
+	} 
+}

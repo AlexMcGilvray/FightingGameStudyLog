@@ -1,21 +1,25 @@
 #include "Keyboard.h"
-#include <stdexcept>
+#include "GameSystems.h"
+#include <GLFW/glfw3.h> 
 
 bool Input::Keyboard::IsKeyDown(Key key)
 {
-	throw std::logic_error("The method or operation is not implemented.");
-	return false;
+	if (glfwGetKey(GameSystems::GetWindow(),key) == GLFW_REPEAT )
+		return true;
+	return false; 
 }
 
 bool Input::Keyboard::KeyPressed(Key key)
 {
-	throw std::logic_error("The method or operation is not implemented.");
-	return false;
+	if (glfwGetKey(GameSystems::GetWindow(),key) == GLFW_PRESS )
+		return true;
+	return false; 
 }
 
 bool Input::Keyboard::KeyReleased(Key key)
 {
-	throw std::logic_error("The method or operation is not implemented.");
-	return false;
+	if (glfwGetKey(GameSystems::GetWindow(),key) == GLFW_RELEASE )
+		return true;
+	return false; 
 }
 

@@ -5,6 +5,7 @@
 #include "Render.h"
 #include "GameData.h"
 #include "Debug.h"
+#include "Input.h"
 
 namespace GameSystems
 {
@@ -87,7 +88,8 @@ namespace GameSystems
 						glfwPollEvents();
 						mCurrentState->Update();    
 						UpdateGlobalGUI();
-						if (glfwGetKey(sWindow,GLFW_KEY_1))
+
+						if (Input::Keyboard::KeyReleased(GLFW_KEY_1)) 
 						{
 							showConsole = !showConsole;
 						}

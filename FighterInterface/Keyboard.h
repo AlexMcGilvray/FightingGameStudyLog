@@ -8,6 +8,5 @@ namespace Input
 		bool IsKeyDown(Key key);
 		bool KeyPressed(Key key);
 		bool KeyReleased(Key key);
-	}
-
+	} 
 }
