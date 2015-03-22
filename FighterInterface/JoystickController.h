@@ -5,8 +5,8 @@ using namespace Input::VirtualInput;
 
 namespace Input
 {
-	namespace  Joystick
-	{
+	namespace Joystick
+	{ 
 		class JoystickController : public IController
 		{
 		public:

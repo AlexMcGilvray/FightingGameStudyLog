@@ -3,6 +3,8 @@
 #include <GLFW/glfw3.h>
 #include "package\imgui.h"
 
+using namespace Keyboard;
+
 Input::InputInfo KeyboardController::Poll()
 {
 	InputInfo result;
@@ -35,14 +37,12 @@ Input::InputInfo KeyboardController::Poll()
 				mappingInfo[i].state = KEY_UP;
 			}
 			else if (down)
-			{
-
+			{ 
 				result.inputMapping[i] = VirtualInput::InputState::VIRTUAL_KEY_DOWN;
 				mappingInfo[i].state = KEY_DOWN;
 			}
 			else 
-			{
-
+			{ 
 				result.inputMapping[i] = VirtualInput::InputState::VIRTUAL_KEY_UP;
 				mappingInfo[i].state = KEY_UP;
 			}

@@ -51,7 +51,7 @@ void Input::SetController(IController * controller, int playerNum)
 
 IController * Input::CreateDefaultKeyboardControllerPlayer1()
 {
-	KeyboardController * controller = new KeyboardController();
+	Keyboard::KeyboardController * controller = new Keyboard::KeyboardController();
 	controller->MapKeyToVirtualKey(GLFW_KEY_W,InputValue::UP);
 	controller->MapKeyToVirtualKey(GLFW_KEY_S,InputValue::DOWN);
 	controller->MapKeyToVirtualKey(GLFW_KEY_A,InputValue::LEFT);
@@ -64,7 +64,7 @@ IController * Input::CreateDefaultKeyboardControllerPlayer1()
 
 IController * Input::CreateDefaultKeyboardControllerPlayer2()
 {
-	KeyboardController * controller = new KeyboardController();
+	Keyboard::KeyboardController * controller = new Keyboard::KeyboardController();
 	controller->MapKeyToVirtualKey(GLFW_KEY_UP,InputValue::UP);
 	controller->MapKeyToVirtualKey(GLFW_KEY_DOWN,InputValue::DOWN);
 	controller->MapKeyToVirtualKey(GLFW_KEY_LEFT,InputValue::LEFT);

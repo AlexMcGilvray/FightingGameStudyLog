@@ -1,7 +1,6 @@
 #pragma once 
 #include <map>
 #include <string>
-#include "Keyboard.h"
  
 namespace Input
 {  
@@ -43,6 +42,11 @@ namespace Input
 		virtual InputInfo Poll() = 0; 
 		virtual	void DebugDraw(){}
 	};
+
+	namespace Keyboard
+	{
+		typedef int Key; //keyboard key typedef. Right now maps to the GLFW types
+	}
 	 
 	void Init(); 
 	IController * GetController(int playerNum);

@@ -1,8 +1,8 @@
 #pragma once
- 
+#include "Input.h"
+
 namespace Input
-{ 
-	typedef int Key; //keyboard key typedef. Right now maps to the GLFW types
+{  
 	namespace Keyboard
 	{
 		bool IsKeyDown(Key key);
