@@ -5,11 +5,7 @@
  
 using namespace Input;
 using namespace Input::Joystick;
-
-namespace 
-{
-	Input::Joystick::JoystickButtonInfo currentMappingInfo[FINAL_VIRTUAL_KEY_ENUM_VALUE];
-}
+ 
 
 Input::InputInfo Input::Joystick::JoystickController::Poll()
 {
@@ -22,6 +18,34 @@ Input::InputInfo Input::Joystick::JoystickController::Poll()
 	//first get the current button state array
 	//process inputinfo using the current and previous state arrays
 	//copy the current state array into the previous state array 
+
+	for (int i = 0; i < FINAL_VIRTUAL_KEY_ENUM_VALUE; ++i)
+	{
+		JoystickButtonInfo & buttonInfo = mappingInfo[i];
+		bool foundButton = false;
+
+		if (buttonInfo.button == JOYSTICK_BUTTON_UNINITIALIZED)
+		{
+			buttonInfo.state = BUTTON_NOT_MAPPED;
+			continue;
+		}
+		for (int i = 0; i < buttonCount; ++i)
+		{
+			if (buttonInfo.button == i)
+			{
+				unsigned char bState =  glfwButtons[i];
+				foundButton = true;
+				buttonInfo.state = bState == GLFW_PRESS ? BUTTON_DOWN : BUTTON_UP;
+			}
+			if (!foundButton)
+			{
+				buttonInfo.state = BUTTON_NOT_FOUND;
+			}
+		} 
+	}
+
+
+
 
 	//using input info from last frame find the current input state
 	for (int i = 0; i < FINAL_VIRTUAL_KEY_ENUM_VALUE; ++i)
