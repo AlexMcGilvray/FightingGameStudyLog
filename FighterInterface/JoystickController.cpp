@@ -6,12 +6,17 @@
 using namespace Input;
 using namespace Input::Joystick;
 
+namespace 
+{
+	Input::Joystick::JoystickButtonInfo currentMappingInfo[FINAL_VIRTUAL_KEY_ENUM_VALUE];
+}
+
 Input::InputInfo Input::Joystick::JoystickController::Poll()
 {
 	InputInfo result;
 	int buttonCount = 0;
 	auto glfwButtons = glfwGetJoystickButtons	(hardwareID, &buttonCount);
-	JoystickButtonInfo currentMappingInfo[FINAL_VIRTUAL_KEY_ENUM_VALUE];   
+	JoystickButtonInfo currentMappingInfo[FINAL_VIRTUAL_KEY_ENUM_VALUE];
 
 	//algorithm
 	//first get the current button state array
