@@ -10,19 +10,26 @@ using namespace Input::Joystick;
 Input::InputInfo Input::Joystick::JoystickController::Poll()
 {
 	InputInfo result;
- 
+	int buttonCount = 0;
+	auto glfwButtons = glfwGetJoystickButtons	(hardwareID, &buttonCount);
+	//take the smaller of the two button arrays so we dont go out of bounds
+	int buttonIterations = JOYSTICK_HARDWARE_BUTTON_MAX < buttonCount ? JOYSTICK_HARDWARE_BUTTON_MAX : buttonCount;
+	
+
+	//process buttons to get virutal key return
+	for (int i = 0; i < buttonIterations; ++i)
+	{ 
+		 //logic here
+	}
+
+
+	//copy buttons to last frame buttons
+	for (int i = 0; i < buttonIterations; ++i)
+	{
+		lastFrameHardwareButtons[i] = glfwButtons[i];
+	}
+
 
 	return result;
-}
-
-void Input::Joystick::JoystickController::DebugDraw()
-{
-	/*ImGui::Text("Up key : %s",DrawInputStateField( mappingInfo[UP].state).c_str());
-	ImGui::Text("Down key : %s",DrawInputStateField( mappingInfo[DOWN].state).c_str());
-	ImGui::Text("Left key : %s",DrawInputStateField( mappingInfo[LEFT].state).c_str());
-	ImGui::Text("Right key : %s",DrawInputStateField( mappingInfo[RIGHT].state).c_str());
-	ImGui::Text("Btn1 key : %s",DrawInputStateField( mappingInfo[BTN1].state).c_str());
-	ImGui::Text("Btn2 key : %s",DrawInputStateField( mappingInfo[BTN2].state).c_str());
-	ImGui::Text("Start key : %s",DrawInputStateField( mappingInfo[START].state).c_str());*/
 }
  
