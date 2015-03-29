@@ -11,7 +11,7 @@ Input::InputInfo Input::Joystick::JoystickController::Poll()
 {
 	InputInfo result;
 	int buttonCount = 0;
-	auto glfwButtons = glfwGetJoystickButtons	(hardwareID, &buttonCount);
+	auto glfwButtons = glfwGetJoystickButtons	(1, &buttonCount);
 	//take the smaller of the two button arrays so we dont go out of bounds
 	int buttonIterations = JOYSTICK_HARDWARE_BUTTON_MAX < buttonCount ? JOYSTICK_HARDWARE_BUTTON_MAX : buttonCount;
 	buttonIterations = buttonIterations < FINAL_VIRTUAL_KEY_ENUM_VALUE ? buttonIterations : FINAL_VIRTUAL_KEY_ENUM_VALUE;
