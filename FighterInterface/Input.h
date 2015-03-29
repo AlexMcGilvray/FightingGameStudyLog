@@ -54,4 +54,7 @@ namespace Input
 	//quick factory methods to create various types of controllers 
 	IController * CreateDefaultKeyboardControllerPlayer1();
 	IController * CreateDefaultKeyboardControllerPlayer2();
+
+	IController * CreateDefaultJoystickControllerPlayer1();
+	IController * CreateDefaultJoystickControllerPlayer2();
 }

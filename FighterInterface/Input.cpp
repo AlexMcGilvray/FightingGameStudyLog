@@ -4,6 +4,7 @@
 #include "package\imgui.h"
 #include <gamepad/Gamepad.h>
 #include "KeyboardController.h"
+#include "JoystickController.h"
 
 using namespace Input;
 
@@ -74,3 +75,14 @@ IController * Input::CreateDefaultKeyboardControllerPlayer2()
 	controller->MapKeyToVirtualKey(GLFW_KEY_P,InputValue::START);
 	return controller;
 } 
+
+IController * Input::CreateDefaultJoystickControllerPlayer1()
+{
+	Joystick::JoystickController * controller = new Joystick::JoystickController();
+	return controller;
+}
+
+IController * Input::CreateDefaultJoystickControllerPlayer2()
+{
+
+}
