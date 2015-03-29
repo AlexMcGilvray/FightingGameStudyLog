@@ -109,7 +109,8 @@ void GameState::Render()
 void GameState::Init()
 {
 	State::Init();
-	controller = Input::CreateDefaultKeyboardControllerPlayer1();
+	//controller = Input::CreateDefaultKeyboardControllerPlayer1();
+	controller = Input::CreateDefaultJoystickControllerPlayer1();
 	character = new Character(this);
 	character->x = 300;
 	character->controller = controller;

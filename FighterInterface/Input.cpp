@@ -84,5 +84,6 @@ IController * Input::CreateDefaultJoystickControllerPlayer1()
 
 IController * Input::CreateDefaultJoystickControllerPlayer2()
 {
-
+	Joystick::JoystickController * controller = new Joystick::JoystickController();
+	return controller;
 }

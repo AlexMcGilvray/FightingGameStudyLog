@@ -28,7 +28,7 @@ namespace Input
 		};
 
 		struct InputInfo
-		{
+		{ 
 			InputState inputMapping[FINAL_VIRTUAL_KEY_ENUM_VALUE]; 
 			//timestamp
 			//framestamp 
