@@ -109,8 +109,7 @@ std::string KeyboardController::DrawInputStateField(KeyboardController::KeyState
 {
 	std::string stateName; 
 	switch (state)
-	{
-
+	{ 
 	case KEY_UP:
 		stateName = "Up";
 		break;

@@ -92,7 +92,7 @@ namespace GameSystems
 
 						if (Input::Keyboard::KeyReleased(GLFW_KEY_1)) 
 						{
-							showConsole = !showConsole;
+						 	showConsole = !showConsole;
 						}
 						hasUpdatedOnce = true;
 					} 
@@ -118,37 +118,7 @@ namespace GameSystems
 
 	void Start()
 	{
-		GameLoop();
-		double frameTime;
-		while (!glfwWindowShouldClose(sWindow))
-		{ 
-			frameTime = glfwGetTime();
-			glfwPollEvents();
-			// Rendering
-			glViewport(0, 0, 1280, 720);
-			glClearColor(0.8f, 0.6f, 0.6f, 1.0f);
-			glClear(GL_COLOR_BUFFER_BIT); 
-			UpdateImGui();
-			UpdateGlobalGUI();
-			if (mCurrentState)
-			{ 
-				mCurrentState->Update();  
-				mCurrentState->Render();
-				mCurrentState->UpdateGUI();
-			}
-			Render::Render();
-			if (glfwGetKey(sWindow,GLFW_KEY_1))
-			{
-				showConsole = !showConsole;
-			}
-			if (showConsole)
-			{
-				ImGui::Render();
-			}
-			glfwSwapBuffers(sWindow);
-			frameTime = glfwGetTime() - frameTime;
-			printf("time for frame is %f \n", frameTime);
-		}
+		GameLoop(); 
 	}
 
 	void UpdateGlobalGUI()
