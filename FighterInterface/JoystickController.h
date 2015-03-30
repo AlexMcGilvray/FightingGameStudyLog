@@ -30,7 +30,9 @@ namespace Input
 
 		class JoystickRemapper
 		{
-
+			InputInfo remap[FINAL_VIRTUAL_KEY_ENUM_VALUE];
+		public:
+			int GetRemappedKey(int virtualKeyIdx);
 		};
 
 

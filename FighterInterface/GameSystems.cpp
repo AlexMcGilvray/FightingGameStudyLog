@@ -89,7 +89,9 @@ namespace GameSystems
 						glfwPollEvents();
 						mCurrentState->Update();    
 						UpdateGlobalGUI();
-
+						//TODO : The console is fucked right now. The keyboard handler
+						//needs to be updated to hold last key state so we can get a proper
+						//just released state
 						if (Input::Keyboard::KeyReleased(GLFW_KEY_1)) 
 						{
 						 	showConsole = !showConsole;

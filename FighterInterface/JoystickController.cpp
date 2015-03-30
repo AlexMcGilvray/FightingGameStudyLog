@@ -15,14 +15,12 @@ Input::InputInfo Input::Joystick::JoystickController::Poll()
 	//take the smaller of the two button arrays so we dont go out of bounds
 	int buttonIterations = JOYSTICK_HARDWARE_BUTTON_MAX < buttonCount ? JOYSTICK_HARDWARE_BUTTON_MAX : buttonCount;
 	buttonIterations = buttonIterations < FINAL_VIRTUAL_KEY_ENUM_VALUE ? buttonIterations : FINAL_VIRTUAL_KEY_ENUM_VALUE;
-	 
 	//zero out the result 
 	for (int i = 0; i < FINAL_VIRTUAL_KEY_ENUM_VALUE; ++i)
 	{
 		result.inputMapping[i] = VirtualInput::InputState::VIRTUAL_KEY_NOT_POLLED;
-	}
-
-	//process buttons to get virutal key return
+	} 
+	//process buttons to get virtual key return
 	for (int i = 0; i < buttonIterations; ++i)
 	{ 
 		 //logic here
@@ -47,9 +45,7 @@ Input::InputInfo Input::Joystick::JoystickController::Poll()
 	for (int i = 0; i < buttonIterations; ++i)
 	{
 		lastFrameHardwareButtons[i] = glfwButtons[i];
-	}
-
-
+	} 
 	return result;
 }
 
