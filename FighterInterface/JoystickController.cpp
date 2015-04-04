@@ -55,15 +55,43 @@ Input::InputInfo Input::Joystick::JoystickController::Poll()
 	InputInfo result;
 	int buttonCount = 0;
 	auto glfwButtons = glfwGetJoystickButtons	(1, &buttonCount);
-	//go through all glfw buttons and if the button is mapped then perform logic
-
-
 	//zero out the result 
 	for (int i = 0; i < FINAL_VIRTUAL_KEY_ENUM_VALUE; ++i)
 	{
 		result.inputMapping[i] = VirtualInput::InputState::VIRTUAL_KEY_NOT_POLLED;
 	} 
 
+	//go through all glfw buttons and if the button is mapped then perform logic
+	for (int i = 0; i < buttonCount; ++i)
+	{
+		if (remapper.IsButtonMapped(i))
+		{
+			//get remapping index
+			int virtualIdx = remapper.GetButtonMapping(i);
+			if (lastFrameHardwareButtons[virtualIdx] == GLFW_PRESS && glfwButtons[i] == GLFW_RELEASE)
+			{
+				result.inputMapping[virtualIdx] = VIRTUAL_KEY_RELEASED;
+			}
+			else if (lastFrameHardwareButtons[virtualIdx] == GLFW_RELEASE && glfwButtons[i] == GLFW_PRESS)
+			{
+				result.inputMapping[virtualIdx] = VIRTUAL_KEY_PRESSED;
+			}
+			else if (lastFrameHardwareButtons[virtualIdx] == GLFW_PRESS && glfwButtons[i] == GLFW_PRESS)
+			{
+				result.inputMapping[virtualIdx] = VIRTUAL_KEY_DOWN;
+			}
+			else if (lastFrameHardwareButtons[virtualIdx] == GLFW_PRESS && glfwButtons[i] == GLFW_PRESS)
+			{
+				result.inputMapping[virtualIdx] = VIRTUAL_KEY_UP;
+			}
+			else if (glfwButtons[i] == GLFW_PRESS)
+			{
+				result.inputMapping[virtualIdx] = VIRTUAL_KEY_DOWN;
+			}
+		}
+	}
+
+	
 	return result;
 }
 
@@ -83,18 +111,17 @@ void Input::Joystick::JoystickController::HardwareID(int val)
 
 }
  
-int Input::Joystick::JoystickRemapper::GetRemappedKey(int virtualKeyIdx)
+InputValue Input::Joystick::JoystickRemapper::GetButtonMapping(char glfwButton)
 {
-	if (virtualKeyIdx > 0 && virtualKeyIdx < FINAL_VIRTUAL_KEY_ENUM_VALUE)
+	for (int i = 0; i < FINAL_VIRTUAL_KEY_ENUM_VALUE;++i )
 	{
-		return remap[virtualKeyIdx];
+		if (remap[i] == glfwButton)
+		{
+			return (InputValue)i;
+		}
 	}
-	else
-	{
-		//todo make assert interface
-		throw std::exception("bwar, make an assert interface");
-		return 0;
-	}
+	//todo assert != not mapped
+	return InputValue::NOT_MAPPED;
 }
 
 Input::Joystick::JoystickRemapper::JoystickRemapper()

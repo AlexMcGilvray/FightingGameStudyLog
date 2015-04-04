@@ -24,7 +24,8 @@ namespace Input
 			BTN1,
 			BTN2,
 			START,
-			FINAL_VIRTUAL_KEY_ENUM_VALUE //this value is used to represent the number of items in this enum  
+			FINAL_VIRTUAL_KEY_ENUM_VALUE,//this value is used to represent the number of items in this enum  
+			NOT_MAPPED //We dont include this in the count
 		};
 
 		struct InputInfo

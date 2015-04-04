@@ -17,7 +17,7 @@ namespace Input
 		{
 
 		public:
-			int GetButtonMapping(int virtualKeyIdx);
+			InputValue GetButtonMapping(char glfwButton);
 			bool IsButtonMapped(char glfwButton);
 			JoystickRemapper();
 		private:
