@@ -8,12 +8,21 @@ namespace Input
 	namespace Joystick
 	{ 
 		//typedefs
-		typedef unsigned char JoystickButton; 
-		//forward declarations
-		class JoystickRemapper;
+		typedef unsigned char JoystickButton;  
 		//constants
 		const int JOYSTICK_HARDWARE_BUTTON_MAX = 10; //number of button indices we poll, currently an arbitrary value
 		 
+
+		class JoystickRemapper
+		{
+
+		public:
+			int GetRemappedKey(int virtualKeyIdx);
+			bool IsButtonMapped(char glfwButton);
+			JoystickRemapper();
+		private:
+			char remap[FINAL_VIRTUAL_KEY_ENUM_VALUE];
+		};
 
 		
 		class JoystickController : public IController
@@ -26,14 +35,10 @@ namespace Input
 		private:
 			int hardwareID;   
 			char lastFrameHardwareButtons[JOYSTICK_HARDWARE_BUTTON_MAX];
+			JoystickRemapper remapper;
 		};
 
-		class JoystickRemapper
-		{
-			InputValue remap[FINAL_VIRTUAL_KEY_ENUM_VALUE];
-		public:
-			int GetRemappedKey(int virtualKeyIdx);
-		};
+		
 
 
 		//Todo add a joystick mapping system so people can write joystick data files to make custom JoystickButtonInfos
