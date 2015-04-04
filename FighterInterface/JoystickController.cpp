@@ -2,6 +2,7 @@
 #include "GameSystems.h"
 #include <GLFW/glfw3.h>
 #include "package\imgui.h"
+#include <exception>
  
 using namespace Input;
 using namespace Input::Joystick;
@@ -64,4 +65,17 @@ void Input::Joystick::JoystickController::HardwareID(int val)
 {
 
 }
-
+ 
+int Input::Joystick::JoystickRemapper::GetRemappedKey(int virtualKeyIdx)
+{
+	if (virtualKeyIdx > 0 && virtualKeyIdx < FINAL_VIRTUAL_KEY_ENUM_VALUE)
+	{
+		return remap[virtualKeyIdx];
+	}
+	else
+	{
+		//todo make assert interface
+		throw std::exception("bwar, make an assert interface");
+		return 0;
+	}
+}

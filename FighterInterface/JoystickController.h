@@ -26,11 +26,11 @@ namespace Input
 		private:
 			int hardwareID;   
 			char lastFrameHardwareButtons[JOYSTICK_HARDWARE_BUTTON_MAX];
-		};  
+		};
 
 		class JoystickRemapper
 		{
-			InputInfo remap[FINAL_VIRTUAL_KEY_ENUM_VALUE];
+			InputValue remap[FINAL_VIRTUAL_KEY_ENUM_VALUE];
 		public:
 			int GetRemappedKey(int virtualKeyIdx);
 		};
