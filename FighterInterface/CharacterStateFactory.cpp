@@ -274,7 +274,7 @@ public:
 	virtual void UpdateState(InputInfo & inputInfo)
 	{
 		CharacterState::UpdateState(inputInfo);
-		CharacterData_MutableData * mData = character.characterData->MutableData();
+		CharacterData_GeneralData * mData = character.characterData->MutableData();
 		if (animation.Complete())
 		{
 			mData->knockBack = 0;
@@ -530,7 +530,7 @@ CharacterData * CharacterStateFactory::ParseCharacterData(const char * pathToDat
 {
 	const char * fileContents = Utilities::GetTextFileContents(pathToDataDefinition);
 	CharacterData_JumpData jumpData;
-	CharacterData_GeneralData generalData;
+	CharacterData_GeneralData_Constants * generalData;
 	Document doc;	
 	doc.Parse(fileContents);
 
@@ -538,8 +538,10 @@ CharacterData * CharacterStateFactory::ParseCharacterData(const char * pathToDat
 	{
 		const Value& v_name = doc["name"];
 		assert(v_name.IsString());  
-		generalData.name = (char *)malloc(sizeof(char) * v_name.GetStringLength());
-		strcpy(generalData.name, v_name.GetString());
+		char * name = (char *)malloc(sizeof(char) * v_name.GetStringLength());
+		int healthMax = -1; //TODO add this to data and parse
+		strcpy(name, v_name.GetString());
+		generalData = new CharacterData_GeneralData_Constants(name,healthMax);
 	} 
 	
 	//Parse and create jump data
@@ -558,11 +560,12 @@ CharacterData * CharacterStateFactory::ParseCharacterData(const char * pathToDat
 		jumpData.yDecay = static_cast<float>(v_y_decay.GetDouble());
 		jumpData.gravityMultiplier = static_cast<float>(v_gravity_multiplier.GetDouble());
 	} 
-
-	CharacterData * characterData = new CharacterData(generalData,jumpData);
+	CharacterData * characterData = new CharacterData(*generalData,jumpData);
 
 	delete fileContents;
 	fileContents = nullptr;
+	delete generalData;
+	generalData = nullptr;
 
 	return characterData;
 }
