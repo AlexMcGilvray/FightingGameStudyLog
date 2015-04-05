@@ -48,7 +48,7 @@ namespace Input
 	{
 		typedef int Key; //keyboard key typedef. Right now maps to the GLFW types
 	}
-	 
+	
 	void Init(); 
 	IController * GetController(int playerNum);
 	void SetController(IController * controller, int playerNum);

@@ -63,9 +63,18 @@ namespace GameSystems
 		InitImGui();
 	}
 
+	void KeyboardGLFWCallback(GLFWwindow* window, int key, int scancode, int action, int mods)
+	{
+		if (action == GLFW_PRESS)
+		{
+			Input::Keyboard::AddKeyDownState(key);
+		}
+	}
+
 	void GameLoop()
 	{
 		const double desiredUpdateTime = GameData::GameGlobalValues::FrameDuration();
+		glfwSetKeyCallback(sWindow, KeyboardGLFWCallback);
 		double timeSinceLastUpdate = 0;
 		double currentUpdateTime = 0;
 		const int catchupThreshold = 3; // if the update gets too far behind we need a faster computer :p
@@ -86,6 +95,7 @@ namespace GameSystems
 					//TODO handle error
 					if (mCurrentState)
 					{ 
+						Input::Keyboard::PrepareForPolling();
 						glfwPollEvents();
 						mCurrentState->Update();    
 						UpdateGlobalGUI();
