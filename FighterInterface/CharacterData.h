@@ -1,5 +1,21 @@
 #pragma once
 
+//TODO, for each character data type, split it into constants and mutables ex
+// struct CharacterData_JumpData_Constants <-- values loaded from file
+// struct CharacterData_JumpData <-- these values are used in gameplay and are mutable
+
+struct CharacterData_JumpData_Constants
+{ 
+	inline float XVelocityDefault(){ return xVelocity; }
+	inline float YStartVelocity(){ return yStartVelocity; }
+	inline float YDecay(){ return yDecay; }
+	inline float GravityMultiplier(){ return gravityMultiplier; }
+private:
+	float xVelocity;
+	float yStartVelocity;
+	float yDecay;
+	float gravityMultiplier;
+};
 
 struct CharacterData_JumpData
 {
