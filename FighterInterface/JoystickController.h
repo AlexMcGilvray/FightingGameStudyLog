@@ -19,6 +19,7 @@ namespace Input
 		public:
 			InputValue GetButtonMapping(char glfwButton);
 			bool IsButtonMapped(char glfwButton);
+			void MapButton(int vButton, char glfwButton);
 			JoystickRemapper();
 		private:
 			char remap[FINAL_VIRTUAL_KEY_ENUM_VALUE];
@@ -32,6 +33,7 @@ namespace Input
 			virtual void DebugDraw();
 			int HardwareID();
 			void HardwareID(int val);
+			void SetRemapper(JoystickRemapper remapper);
 		private:
 			int hardwareID;   
 			char lastFrameHardwareButtons[JOYSTICK_HARDWARE_BUTTON_MAX];

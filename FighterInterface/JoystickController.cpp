@@ -125,7 +125,13 @@ void Input::Joystick::JoystickController::HardwareID(int val)
 {
 
 }
- 
+
+void Input::Joystick::JoystickController::SetRemapper(JoystickRemapper remapper)
+{
+	this->remapper = remapper;
+}
+
+
 InputValue Input::Joystick::JoystickRemapper::GetButtonMapping(char glfwButton)
 {
 	for (int i = 0; i < FINAL_VIRTUAL_KEY_ENUM_VALUE;++i )
@@ -160,4 +166,9 @@ bool Input::Joystick::JoystickRemapper::IsButtonMapped(char glfwButton)
 		}
 	}
 	return false;
+}
+
+void Input::Joystick::JoystickRemapper::MapButton(int vButton, char glfwButton)
+{
+	remap[vButton] = glfwButton;
 }

@@ -77,7 +77,16 @@ IController * Input::CreateDefaultKeyboardControllerPlayer2()
 
 IController * Input::CreateDefaultJoystickControllerPlayer1()
 {
-	Joystick::JoystickController * controller = new Joystick::JoystickController();
+	Joystick::JoystickController * controller = new Joystick::JoystickController(); 
+	Joystick::JoystickRemapper qanba;
+	qanba.MapButton(Input::UP,11);
+	qanba.MapButton(Input::DOWN,13);
+	qanba.MapButton(Input::LEFT,14);
+	qanba.MapButton(Input::RIGHT,12);
+	qanba.MapButton(Input::BTN1,2);
+	qanba.MapButton(Input::BTN2,3);
+	qanba.MapButton(Input::START,9);  
+	controller->SetRemapper(qanba); 
 	return controller;
 }
 
