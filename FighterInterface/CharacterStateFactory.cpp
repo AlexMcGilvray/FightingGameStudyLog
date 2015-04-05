@@ -529,7 +529,7 @@ CharacterStateAnimation CharacterStateFactory::ParseCharacterAnimation(const cha
 CharacterData * CharacterStateFactory::ParseCharacterData(const char * pathToDataDefinition)
 {
 	const char * fileContents = Utilities::GetTextFileContents(pathToDataDefinition);
-	CharacterData_JumpData jumpData;
+	CharacterData_JumpData_Constants * jumpData;
 	CharacterData_GeneralData_Constants * generalData;
 	Document doc;	
 	doc.Parse(fileContents);
@@ -555,17 +555,20 @@ CharacterData * CharacterStateFactory::ParseCharacterData(const char * pathToDat
 		assert(v_y_decay.IsNumber());
 		const Value& v_gravity_multiplier = v_jump_data["gravity_multiplier"];
 		assert(v_gravity_multiplier.IsNumber()); 
-		jumpData.xVelocity = static_cast<float>(v_x_velocity.GetDouble());
-		jumpData.yStartVelocity = static_cast<float>(v_y_start_velocity.GetDouble());
-		jumpData.yDecay = static_cast<float>(v_y_decay.GetDouble());
-		jumpData.gravityMultiplier = static_cast<float>(v_gravity_multiplier.GetDouble());
+		auto xVelocity = static_cast<float>(v_x_velocity.GetDouble());
+		auto yStartVelocity = static_cast<float>(v_y_start_velocity.GetDouble());
+		auto yDecay = static_cast<float>(v_y_decay.GetDouble());
+		auto gravityMultiplier = static_cast<float>(v_gravity_multiplier.GetDouble());
+		jumpData = new CharacterData_JumpData_Constants(xVelocity,yStartVelocity,yDecay,gravityMultiplier);
 	} 
-	CharacterData * characterData = new CharacterData(*generalData,jumpData);
+	CharacterData * characterData = new CharacterData(*generalData,*jumpData);
 
 	delete fileContents;
 	fileContents = nullptr;
 	delete generalData;
 	generalData = nullptr;
+	delete jumpData;
+	jumpData = nullptr;
 
 	return characterData;
 }

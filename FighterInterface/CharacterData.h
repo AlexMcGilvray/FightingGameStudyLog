@@ -1,11 +1,9 @@
 #pragma once
 #include <string>
 /************************************************************************/
-/* 
-
+/*  
 This is where we define all the character specific gameplay data in a generally flat
-nested data structure. 
-
+nested data structure.  
 
 For each character data type, split it into constant data and mutable data 
 
@@ -13,21 +11,31 @@ struct CharacterData_JumpData_Constants <-- values loaded from file
 struct CharacterData_JumpData <-- these values are used in gameplay and are mutable 
 */
 /************************************************************************/
-
-
 struct CharacterData_JumpData_Constants
 { 
-	inline float XVelocityDefault(){ return xVelocity; }
+	inline float XVelocityDefault(){ return xVelocityDefault; }
 	inline float YStartVelocity(){ return yStartVelocity; }
 	inline float YDecay(){ return yDecay; }
 	inline float GravityMultiplier(){ return gravityMultiplier; }
+	CharacterData_JumpData_Constants
+		(float xVelocityDefault,
+		float yStartVelocity,
+		float yDecay,
+		float gravityMultiplier):
+	xVelocityDefault(xVelocityDefault),
+		yStartVelocity(yStartVelocity),
+		yDecay(yDecay),
+		gravityMultiplier(gravityMultiplier)
+	{ }
 private:
-	float xVelocity;
+	float xVelocityDefault;
 	float yStartVelocity;
 	float yDecay;
 	float gravityMultiplier;
 };
 
+//TODO make sure this is updated to not be populated directly 
+//from the json file and the constants are populated instead.
 struct CharacterData_JumpData
 {
 	float xVelocity;
@@ -47,7 +55,10 @@ struct CharacterData_GeneralData_Constants
 {
 	inline const char * Name(){return name.c_str();}
 	inline const int HealthMax(){return healthMax;}
-	CharacterData_GeneralData_Constants(char * name, int healthMax); 
+	CharacterData_GeneralData_Constants(char * name, int healthMax):
+		name(name),
+		healthMax(healthMax)
+	{ }
 private:
 	std::string name;
 	int healthMax;
@@ -56,12 +67,26 @@ private:
 class CharacterData
 {
 public:
-	CharacterData(CharacterData_GeneralData_Constants generalDataIn, CharacterData_JumpData jumpDataIn);
-	~CharacterData(void);
+	CharacterData(
+		CharacterData_GeneralData_Constants generalDataIn, 
+		CharacterData_JumpData_Constants jumpDataIn):
+		generalDataConstants(generalDataIn),
+		jumpDataConstants(jumpDataIn)
+	{
+		generalData.health = 11; generalDataConstants.HealthMax(); 
+
+		jumpData.xVelocity = jumpDataConstants.XVelocityDefault();
+		jumpData.yStartVelocity = jumpDataConstants.YStartVelocity();
+		jumpData.yDecay = jumpDataConstants.YDecay();
+		jumpData.gravityMultiplier = jumpDataConstants.GravityMultiplier();
+	}
+	~CharacterData(void) { }
 	CharacterData_GeneralData * const MutableData() { return &generalData; } 
 	CharacterData_JumpData const * const JumpData() const { return &jumpData; } 
-	CharacterData_JumpData_Constants const * const JumpDataConstants() const { return &jumpDataConstants; } 
-	CharacterData_GeneralData_Constants const * const GeneralData() const { return &generalDataConstants; }
+	CharacterData_JumpData_Constants const * const JumpDataConstants() const 
+	{ return &jumpDataConstants; } 
+	CharacterData_GeneralData_Constants const * const GeneralData() const 
+	{ return &generalDataConstants; }
 private:
 	//Jump data
 	CharacterData_JumpData jumpData;
@@ -69,6 +94,5 @@ private:
 	//General data
 	CharacterData_GeneralData generalData;
 	CharacterData_GeneralData_Constants generalDataConstants;
-	
 };
 
