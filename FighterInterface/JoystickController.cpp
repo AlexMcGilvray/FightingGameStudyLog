@@ -49,12 +49,17 @@ using namespace Input::Joystick;
 //	} 
 //	return result;
 //}
+namespace
+{
+	int buttonCount = 0;
+	const unsigned char * glfwButtons;
+} 
 
 Input::InputInfo Input::Joystick::JoystickController::Poll()
 {
 	InputInfo result;
-	int buttonCount = 0;
-	auto glfwButtons = glfwGetJoystickButtons	(1, &buttonCount);
+	buttonCount = 0;
+	glfwButtons = glfwGetJoystickButtons	(1, &buttonCount);
 	//zero out the result 
 	for (int i = 0; i < FINAL_VIRTUAL_KEY_ENUM_VALUE; ++i)
 	{
@@ -97,7 +102,17 @@ Input::InputInfo Input::Joystick::JoystickController::Poll()
 
 void Input::Joystick::JoystickController::DebugDraw()
 {
-
+	for (int i = 0; i < buttonCount; ++i)
+	{
+		if (glfwButtons[i] == GLFW_PRESS)
+		{
+			ImGui::Text("Button %i is pressed ", i);
+		}
+		else
+		{
+			ImGui::Text("Button %i is released ", i);
+		}
+	} 
 }
 
 int Input::Joystick::JoystickController::HardwareID()
