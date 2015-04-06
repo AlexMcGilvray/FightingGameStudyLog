@@ -92,298 +92,218 @@ void State_Idle::ResetState()
 	animation.Reset();
 	animation.Start();
 }
-	  
-class State_Duck : CharacterState
-{ 
-public:
-	State_Duck(Character & character,CharacterStateAnimation anim, const char * name )  : 
-		CharacterState(character,anim,name)
-	{
 
+
+
+void State_Duck::UpdateState(InputInfo & inputInfo)
+{
+	CharacterState::UpdateState(inputInfo);
+	character.velocityX = 0;
+	character.velocityY = 0;
+
+	if (IsWalkingForward(character,inputInfo))
+		character.state.ChangeState(WALKING_FORWARD); 
+	else if (IsWalkingBackwards(character,inputInfo))
+		character.state.ChangeState(WALKING_BACKWARD);  
+	//this should be duck attack when added
+	/*else if (inputInfo.inputMapping[InputValue::BTN1] == InputState::VIRTUAL_KEY_PRESSED) 
+	character.state.ChangeState(STAND_ATTACK_1);  */
+
+
+	if (inputInfo.inputMapping[InputValue::UP] == InputState::VIRTUAL_KEY_DOWN)
+	{ 
+		character.state.ChangeState(JUMP_UP);
 	}
+	else if (inputInfo.inputMapping[InputValue::DOWN] == InputState::VIRTUAL_KEY_UP)
+	{ 
+		character.state.ChangeState(STAND);
+	} 
+}
 
-	virtual void UpdateState(InputInfo & inputInfo)
+void State_Duck::ResetState()
+{
+	CharacterState::ResetState();
+	animation.Reset();
+	animation.Start();
+}
+
+
+
+
+void State_StandAttack1::UpdateState(InputInfo & inputInfo)
+{
+	CharacterState::UpdateState(inputInfo);
+	if (animation.Complete())
 	{
-		CharacterState::UpdateState(inputInfo);
+		character.state.ChangeState(STAND);
+	}
+	else
+	{
 		character.velocityX = 0;
-		character.velocityY = 0;
-
-		if (IsWalkingForward(character,inputInfo))
-			character.state.ChangeState(WALKING_FORWARD); 
-		else if (IsWalkingBackwards(character,inputInfo))
-			character.state.ChangeState(WALKING_BACKWARD);  
-		//this should be duck attack when added
-		/*else if (inputInfo.inputMapping[InputValue::BTN1] == InputState::VIRTUAL_KEY_PRESSED) 
-			character.state.ChangeState(STAND_ATTACK_1);  */
-
-
-		if (inputInfo.inputMapping[InputValue::UP] == InputState::VIRTUAL_KEY_DOWN)
-		{ 
-			character.state.ChangeState(JUMP_UP);
-		}
-		else if (inputInfo.inputMapping[InputValue::DOWN] == InputState::VIRTUAL_KEY_UP)
-		{ 
-			character.state.ChangeState(STAND);
-		} 
-	}
-
-	virtual void ResetState()
-	{
-		CharacterState::ResetState();
-		animation.Reset();
-		animation.Start();
-	}
-
-};
-
-class State_StandAttack1 : CharacterState
-{ 
-public:
-	State_StandAttack1(Character & character,CharacterStateAnimation anim, const char * name ) : 
-		CharacterState(character,anim,name)
-	{
-
-	}
-
-	virtual void UpdateState(InputInfo & inputInfo)
-	{
-		CharacterState::UpdateState(inputInfo);
-		if (animation.Complete())
-		{
-			character.state.ChangeState(STAND);
-		}
-		else
-		{
-			character.velocityX = 0;
-			character.velocityY = 0; 
-		} 
-	}
-
-	virtual void ResetState()
-	{
-		CharacterState::ResetState();
-		animation.Reset();
-		animation.Start();
-	}
-
-};
-
-class State_WalkingForward : CharacterState
-{ 
-	public:
-	State_WalkingForward(Character & character,CharacterStateAnimation anim, const char * name )  : 
-		CharacterState(character,anim,name)
-	{
-		 
-	}
-
-	virtual void UpdateState(InputInfo & inputInfo)
-	{
-		CharacterState::UpdateState(inputInfo);
-		if (IsJumpingForward(character,inputInfo))
-			character.state.ChangeState(JUMP_FORWARD); 
-		else if (IsJumpingBackwards(character,inputInfo))
-			character.state.ChangeState(JUMP_BACKWARD); 
-
-		if (IsWalkingForward(character,inputInfo))
-		{
-			if (character.Facing() == CharacterFacing::LEFT)
-				character.velocityX = -0.1f; //TODO this needs to be data driven
-			else
-				character.velocityX = 0.1f; 
-		} 
-		else if (IsWalkingBackwards(character,inputInfo))
-		{
-			character.state.ChangeState(WALKING_BACKWARD);  
-		} 
-		else
-		{
-			character.state.ChangeState(STAND); 
-		} 
-	}
-
-	virtual void ResetState()
-	{
-		CharacterState::ResetState();
-		animation.Reset();
-		animation.Start();
+		character.velocityY = 0; 
 	} 
-};
+}
 
-class State_WalkingBackward : CharacterState
-{ 
-public:
-	State_WalkingBackward(Character & character,CharacterStateAnimation anim, const char * name)  : 
-		CharacterState(character,anim,name)
+void State_StandAttack1::ResetState()
+{
+	CharacterState::ResetState();
+	animation.Reset();
+	animation.Start();
+}
+
+void State_WalkingForward::UpdateState(InputInfo & inputInfo)
+{
+	CharacterState::UpdateState(inputInfo);
+	if (IsJumpingForward(character,inputInfo))
+		character.state.ChangeState(JUMP_FORWARD); 
+	else if (IsJumpingBackwards(character,inputInfo))
+		character.state.ChangeState(JUMP_BACKWARD); 
+
+	if (IsWalkingForward(character,inputInfo))
 	{
-
-	}
-
-	virtual void UpdateState(InputInfo & inputInfo)
-	{
-		CharacterState::UpdateState(inputInfo);
-		if (IsJumpingForward(character,inputInfo))
-			character.state.ChangeState(JUMP_FORWARD); 
-		else if (IsJumpingBackwards(character,inputInfo))
-			character.state.ChangeState(JUMP_BACKWARD); 
-
-		if (IsWalkingBackwards(character,inputInfo))
-		{
-			if (character.Facing() == CharacterFacing::LEFT)
-				character.velocityX = 0.1f;
-			else
-				character.velocityX = -0.1f; 
-		} 
-		else if (IsWalkingForward(character,inputInfo))
-		{
-			character.state.ChangeState(WALKING_FORWARD);  
-		} 
-		else
-		{
-			character.state.ChangeState(STAND); 
-		}
-	}
-
-	virtual void ResetState()
-	{
-		CharacterState::ResetState();
-		animation.Reset();
-		animation.Start();
-	} 
-};
-
-class State_HitStun : CharacterState
-{ 
-public:
-	State_HitStun(Character & character,CharacterStateAnimation anim, const char * name)  : 
-		CharacterState(character,anim,name)
-	{
-
-	}
-
-	virtual void UpdateState(InputInfo & inputInfo)
-	{
-		CharacterState::UpdateState(inputInfo);
-		CharacterData_GeneralData * mData = character.characterData->MutableData();
-		if (animation.Complete())
-		{
-			mData->knockBack = 0;
-			character.state.PopState();
-		}
-		else
-		{
-			if (character.Facing() == CharacterFacing::LEFT)
-			{
-				character.velocityX = mData->knockBack;
-			}
-			else
-			{
-				character.velocityX = -mData->knockBack;
-			}
-		} 
-	}
-
-	virtual void ResetState()
-	{
-		CharacterState::ResetState();
-		animation.Reset();
-		animation.Start();
-	} 
-};
-
-class State_Jump_Up : CharacterState
-{ 
-public:
-	State_Jump_Up(Character & character,CharacterStateAnimation anim, const char * name)  : 
-		CharacterState(character,anim,name)
-	{
-		AffectedByGravity(false);
-	}
-
-	virtual void UpdateState(InputInfo & inputInfo)
-	{
-		CharacterState::UpdateState(inputInfo);
-		character.velocityY += character.characterData->JumpData()->yDecay;
-		if (character.y >= GameData::LevelGlobalValues::GroundPlaneY())
-		{
-			character.state.ChangeState(STAND); 
-		}
-	}
-
-	virtual void ResetState()
-	{
-		CharacterState::ResetState();
-		animation.Reset();
-		animation.Start(); 
-		character.velocityY = -character.characterData->JumpData()->yStartVelocity;
-	
-	} 
-private: 
-};
-
-class State_Jump_Forward : CharacterState
-{ 
-public:
-	State_Jump_Forward(Character & character,CharacterStateAnimation anim, const char * name)  : 
-		CharacterState(character,anim,name) 
-	{
-
-	}
-
-	virtual void UpdateState(InputInfo & inputInfo)
-	{
-		CharacterState::UpdateState(inputInfo); 
-		character.velocityY += character.characterData->JumpData()->yDecay;  
-		if (character.y >= GameData::LevelGlobalValues::GroundPlaneY())
-		{ 
-			character.state.ChangeState(STAND); 
-		}
-	}
-
-	virtual void ResetState()
-	{
-		CharacterState::ResetState();
-		animation.Reset();
-		animation.Start(); 
-		character.velocityY = -character.characterData->JumpData()->yStartVelocity;  
 		if (character.Facing() == CharacterFacing::LEFT)
-			character.velocityX = -character.characterData->JumpData()->xVelocity;
+			character.velocityX = -0.1f; //TODO this needs to be data driven
 		else
-			character.velocityX = character.characterData->JumpData()->xVelocity;
+			character.velocityX = 0.1f; 
 	} 
-private: 
-};
-
-class State_Jump_Backward : CharacterState
-{ 
-public:
-	State_Jump_Backward(Character & character,CharacterStateAnimation anim, const char * name)  : 
-		CharacterState(character,anim,name) 
+	else if (IsWalkingBackwards(character,inputInfo))
 	{
-
-	}
-
-	virtual void UpdateState(InputInfo & inputInfo)
+		character.state.ChangeState(WALKING_BACKWARD);  
+	} 
+	else
 	{
-		CharacterState::UpdateState(inputInfo);
-		character.velocityY += character.characterData->JumpData()->yDecay;  
-		if (character.y >= GameData::LevelGlobalValues::GroundPlaneY())
-		{ 
-			character.state.ChangeState(STAND); 
-		}
-	}
+		character.state.ChangeState(STAND); 
+	} 
+}
 
-	virtual void ResetState()
+void State_WalkingForward::ResetState()
+{
+	CharacterState::ResetState();
+	animation.Reset();
+	animation.Start();
+}  
+
+void State_WalkingBackward::UpdateState(InputInfo & inputInfo)
+{
+	CharacterState::UpdateState(inputInfo);
+	if (IsJumpingForward(character,inputInfo))
+		character.state.ChangeState(JUMP_FORWARD); 
+	else if (IsJumpingBackwards(character,inputInfo))
+		character.state.ChangeState(JUMP_BACKWARD); 
+
+	if (IsWalkingBackwards(character,inputInfo))
 	{
-		CharacterState::ResetState();
-		character.velocityY = -character.characterData->JumpData()->yStartVelocity;  
 		if (character.Facing() == CharacterFacing::LEFT)
-			character.velocityX = character.characterData->JumpData()->xVelocity;
+			character.velocityX = 0.1f;
 		else
-			character.velocityX = -character.characterData->JumpData()->xVelocity;
+			character.velocityX = -0.1f; 
 	} 
-private: 
-};
+	else if (IsWalkingForward(character,inputInfo))
+	{
+		character.state.ChangeState(WALKING_FORWARD);  
+	} 
+	else
+	{
+		character.state.ChangeState(STAND); 
+	}
+}
+
+void State_WalkingBackward::ResetState()
+{
+	CharacterState::ResetState();
+	animation.Reset();
+	animation.Start();
+}  
+
+void State_HitStun::UpdateState(InputInfo & inputInfo)
+{
+	CharacterState::UpdateState(inputInfo);
+	CharacterData_GeneralData * mData = character.characterData->MutableData();
+	if (animation.Complete())
+	{
+		mData->knockBack = 0;
+		character.state.PopState();
+	}
+	else
+	{
+		if (character.Facing() == CharacterFacing::LEFT)
+		{
+			character.velocityX = mData->knockBack;
+		}
+		else
+		{
+			character.velocityX = -mData->knockBack;
+		}
+	} 
+}
+
+void State_HitStun::ResetState()
+{
+	CharacterState::ResetState();
+	animation.Reset();
+	animation.Start();
+}  
+
+void State_Jump_Up::UpdateState(InputInfo & inputInfo)
+{
+	CharacterState::UpdateState(inputInfo);
+	character.velocityY += character.characterData->JumpData()->yDecay;
+	if (character.y >= GameData::LevelGlobalValues::GroundPlaneY())
+	{
+		character.state.ChangeState(STAND); 
+	}
+}
+
+void State_Jump_Up::ResetState()
+{
+	CharacterState::ResetState();
+	animation.Reset();
+	animation.Start(); 
+	character.velocityY = -character.characterData->JumpData()->yStartVelocity;
+
+}  
+
+void State_Jump_Forward::UpdateState(InputInfo & inputInfo)
+{
+	CharacterState::UpdateState(inputInfo); 
+	character.velocityY += character.characterData->JumpData()->yDecay;  
+	if (character.y >= GameData::LevelGlobalValues::GroundPlaneY())
+	{ 
+		character.state.ChangeState(STAND); 
+	}
+}
+
+void State_Jump_Forward::ResetState()
+{
+	CharacterState::ResetState();
+	animation.Reset();
+	animation.Start(); 
+	character.velocityY = -character.characterData->JumpData()->yStartVelocity;  
+	if (character.Facing() == CharacterFacing::LEFT)
+		character.velocityX = -character.characterData->JumpData()->xVelocity;
+	else
+		character.velocityX = character.characterData->JumpData()->xVelocity;
+}  
+
+void State_Jump_Backward::UpdateState(InputInfo & inputInfo)
+{
+	CharacterState::UpdateState(inputInfo);
+	character.velocityY += character.characterData->JumpData()->yDecay;  
+	if (character.y >= GameData::LevelGlobalValues::GroundPlaneY())
+	{ 
+		character.state.ChangeState(STAND); 
+	}
+}
+
+void State_Jump_Backward::ResetState()
+{
+	CharacterState::ResetState();
+	character.velocityY = -character.characterData->JumpData()->yStartVelocity;  
+	if (character.Facing() == CharacterFacing::LEFT)
+		character.velocityX = character.characterData->JumpData()->xVelocity;
+	else
+		character.velocityX = -character.characterData->JumpData()->xVelocity;
+}  
 
 
 
