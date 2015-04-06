@@ -44,6 +44,19 @@ struct CharacterData_JumpData
 	float gravityMultiplier;
 };
 
+ 
+
+struct CharacterData_Movement_Constants
+{
+	inline float XVelocityDefault(){ return xVelocityDefault; }
+	CharacterData_Movement_Constants
+		(float xVelocityDefault ):
+	xVelocityDefault(xVelocityDefault) 
+	{ }
+private:
+	float xVelocityDefault;
+};
+
 struct CharacterData_GeneralData
 {
 	int health;

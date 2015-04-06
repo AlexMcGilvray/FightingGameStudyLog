@@ -13,7 +13,7 @@ void State_WalkingForward::UpdateState(InputInfo & inputInfo)
 	if (IsWalkingForward(character,inputInfo))
 	{
 		if (character.Facing() == CharacterFacing::LEFT)
-			character.velocityX = -0.1f; //TODO this needs to be data driven
+			character.velocityX = 0.1f; //TODO this needs to be data driven
 		else
 			character.velocityX = 0.1f; 
 	} 
