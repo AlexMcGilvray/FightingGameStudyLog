@@ -42,9 +42,7 @@ struct CharacterData_JumpData
 	float yStartVelocity;
 	float yDecay;
 	float gravityMultiplier;
-};
-
- 
+}; 
 
 struct CharacterData_Movement_Constants
 {
@@ -82,9 +80,11 @@ class CharacterData
 public:
 	CharacterData(
 		CharacterData_GeneralData_Constants generalDataIn, 
-		CharacterData_JumpData_Constants jumpDataIn):
+		CharacterData_JumpData_Constants jumpDataIn,
+		CharacterData_Movement_Constants movementConstants):
 		generalDataConstants(generalDataIn),
-		jumpDataConstants(jumpDataIn)
+		jumpDataConstants(jumpDataIn),
+		movementConstants(movementConstants)
 	{
 		generalData.health = 11; generalDataConstants.HealthMax(); 
 
@@ -107,5 +107,7 @@ private:
 	//General data
 	CharacterData_GeneralData generalData;
 	CharacterData_GeneralData_Constants generalDataConstants;
+	//Movement data
+	CharacterData_Movement_Constants movementConstants;
 };
 

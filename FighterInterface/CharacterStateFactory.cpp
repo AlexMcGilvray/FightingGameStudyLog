@@ -151,6 +151,7 @@ CharacterData * CharacterStateFactory::ParseCharacterData(const char * pathToDat
 	const char * fileContents = Utilities::GetTextFileContents(pathToDataDefinition);
 	CharacterData_JumpData_Constants * jumpData;
 	CharacterData_GeneralData_Constants * generalData;
+	CharacterData_Movement_Constants * movementDataConstants;
 	Document doc;	
 	doc.Parse(fileContents);
 
@@ -163,6 +164,12 @@ CharacterData * CharacterStateFactory::ParseCharacterData(const char * pathToDat
 		strcpy(name, v_name.GetString());
 		generalData = new CharacterData_GeneralData_Constants(name,healthMax);
 	} 
+
+	//Movement constants
+	{
+		//TODO make this data driven
+		movementDataConstants = new CharacterData_Movement_Constants(10.0f);
+	}
 	
 	//Parse and create jump data
 	{
@@ -181,7 +188,7 @@ CharacterData * CharacterStateFactory::ParseCharacterData(const char * pathToDat
 		auto gravityMultiplier = static_cast<float>(v_gravity_multiplier.GetDouble());
 		jumpData = new CharacterData_JumpData_Constants(xVelocity,yStartVelocity,yDecay,gravityMultiplier);
 	} 
-	CharacterData * characterData = new CharacterData(*generalData,*jumpData);
+	CharacterData * characterData = new CharacterData(*generalData,*jumpData,*movementDataConstants);
 
 	delete fileContents;
 	fileContents = nullptr;
@@ -189,6 +196,8 @@ CharacterData * CharacterStateFactory::ParseCharacterData(const char * pathToDat
 	generalData = nullptr;
 	delete jumpData;
 	jumpData = nullptr;
+	delete movementDataConstants;
+	movementDataConstants = nullptr;
 
 	return characterData;
 }
