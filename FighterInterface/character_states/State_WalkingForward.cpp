@@ -10,12 +10,14 @@ void State_WalkingForward::UpdateState(InputInfo & inputInfo)
 	else if (IsJumpingBackwards(character,inputInfo))
 		character.state.ChangeState(JUMP_BACKWARD); 
 
+	float xVel = character.characterData->MovementConstants()->XVelocityDefault();
+
 	if (IsWalkingForward(character,inputInfo))
 	{
 		if (character.Facing() == CharacterFacing::LEFT)
-			character.velocityX = 0.1f; //TODO this needs to be data driven
+			character.velocityX = -xVel;
 		else
-			character.velocityX = 0.1f; 
+			character.velocityX = xVel; 
 	} 
 	else if (IsWalkingBackwards(character,inputInfo))
 	{

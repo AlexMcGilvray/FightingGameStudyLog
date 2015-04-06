@@ -168,7 +168,7 @@ CharacterData * CharacterStateFactory::ParseCharacterData(const char * pathToDat
 	//Movement constants
 	{
 		//TODO make this data driven
-		movementDataConstants = new CharacterData_Movement_Constants(10.0f);
+		movementDataConstants = new CharacterData_Movement_Constants(5.0f);
 	}
 	
 	//Parse and create jump data

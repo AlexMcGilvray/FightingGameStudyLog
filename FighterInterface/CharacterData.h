@@ -96,10 +96,12 @@ public:
 	~CharacterData(void) { }
 	CharacterData_GeneralData * const MutableData() { return &generalData; } 
 	CharacterData_JumpData const * const JumpData() const { return &jumpData; } 
-	CharacterData_JumpData_Constants const * const JumpDataConstants() const 
+	CharacterData_JumpData_Constants const * const JumpDataConstants()  
 	{ return &jumpDataConstants; } 
-	CharacterData_GeneralData_Constants const * const GeneralData() const 
+	CharacterData_GeneralData_Constants const * const GeneralData()  
 	{ return &generalDataConstants; }
+	CharacterData_Movement_Constants   *  const  MovementConstants()   
+		{ return &movementConstants; }
 private:
 	//Jump data
 	CharacterData_JumpData jumpData;
