@@ -37,6 +37,12 @@
     <Filter Include="Source Files\CharacterStates">
       <UniqueIdentifier>{931782ea-aabf-4f6b-a0b1-26046509409c}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\Character">
+      <UniqueIdentifier>{2f09ecc2-f997-471f-b624-b633b28e3ef2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Character">
+      <UniqueIdentifier>{5f6af61b-175f-4571-aed2-afc80e09f240}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Main.cpp">
@@ -63,15 +69,6 @@
     <ClCompile Include="GameState.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Character.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="CharacterState.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="CharacterStateFactory.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="GameData.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -82,9 +79,6 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="UFrameTimer.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="CharacterData.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Input.cpp">
@@ -125,6 +119,18 @@
     </ClCompile>
     <ClCompile Include="character_states\State_Jump_Backward.cpp">
       <Filter>Source Files\CharacterStates</Filter>
+    </ClCompile>
+    <ClCompile Include="CharacterStateFactory.cpp">
+      <Filter>Source Files\Character</Filter>
+    </ClCompile>
+    <ClCompile Include="Character.cpp">
+      <Filter>Source Files\Character</Filter>
+    </ClCompile>
+    <ClCompile Include="CharacterData.cpp">
+      <Filter>Source Files\Character</Filter>
+    </ClCompile>
+    <ClCompile Include="CharacterState.cpp">
+      <Filter>Source Files\Character</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -167,16 +173,7 @@
     <ClInclude Include="GameState.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Character.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="GameData.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="CharacterState.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="CharacterStateFactory.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Utilities.h">
@@ -191,9 +188,6 @@
     <ClInclude Include="UFrameTimer.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="CharacterData.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="Input.h">
       <Filter>Header Files\Input</Filter>
     </ClInclude>
@@ -205,6 +199,21 @@
     </ClInclude>
     <ClInclude Include="Keyboard.h">
       <Filter>Header Files\Input</Filter>
+    </ClInclude>
+    <ClInclude Include="Character.h">
+      <Filter>Header Files\Character</Filter>
+    </ClInclude>
+    <ClInclude Include="CharacterData.h">
+      <Filter>Header Files\Character</Filter>
+    </ClInclude>
+    <ClInclude Include="CharacterState.h">
+      <Filter>Header Files\Character</Filter>
+    </ClInclude>
+    <ClInclude Include="CharacterStateFactory.h">
+      <Filter>Header Files\Character</Filter>
+    </ClInclude>
+    <ClInclude Include="CharacterStates.h">
+      <Filter>Header Files\Character</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
