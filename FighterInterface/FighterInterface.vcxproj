@@ -123,6 +123,7 @@
     <ClInclude Include="CharacterState.h" />
     <ClInclude Include="CharacterStateFactory.h" />
     <ClInclude Include="CharacterStates.h" />
+    <ClInclude Include="character_states\CharacterUtils.h" />
     <ClInclude Include="Collision.h" />
     <ClInclude Include="Debug.h" />
     <ClInclude Include="GameData.h" />

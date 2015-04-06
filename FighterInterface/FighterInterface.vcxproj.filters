@@ -215,6 +215,9 @@
     <ClInclude Include="CharacterStates.h">
       <Filter>Header Files\Character</Filter>
     </ClInclude>
+    <ClInclude Include="character_states\CharacterUtils.h">
+      <Filter>Header Files\Character</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="data\gamedata.json">
