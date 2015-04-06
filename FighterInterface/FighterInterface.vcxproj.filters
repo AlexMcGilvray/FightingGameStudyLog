@@ -132,6 +132,9 @@
     <ClCompile Include="CharacterState.cpp">
       <Filter>Source Files\Character</Filter>
     </ClCompile>
+    <ClCompile Include="character_states\CharacterUtils.cpp">
+      <Filter>Source Files\Character</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="IRenderable.h">

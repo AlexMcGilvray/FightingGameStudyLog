@@ -1,5 +1,4 @@
-#pragma once
-
+#pragma once 
 #include "CharacterState.h"
 
 class State_Idle : CharacterState

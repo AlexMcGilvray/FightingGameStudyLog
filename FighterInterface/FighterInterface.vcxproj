@@ -84,6 +84,7 @@
     <ClCompile Include="CharacterData.cpp" />
     <ClCompile Include="CharacterState.cpp" />
     <ClCompile Include="CharacterStateFactory.cpp" />
+    <ClCompile Include="character_states\CharacterUtils.cpp" />
     <ClCompile Include="character_states\State_Duck.cpp" />
     <ClCompile Include="character_states\State_HitStun.cpp" />
     <ClCompile Include="character_states\State_Idle.cpp" />
