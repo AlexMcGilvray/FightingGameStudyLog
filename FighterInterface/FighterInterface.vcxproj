@@ -84,6 +84,15 @@
     <ClCompile Include="CharacterData.cpp" />
     <ClCompile Include="CharacterState.cpp" />
     <ClCompile Include="CharacterStateFactory.cpp" />
+    <ClCompile Include="character_states\State_Duck.cpp" />
+    <ClCompile Include="character_states\State_HitStun.cpp" />
+    <ClCompile Include="character_states\State_Idle.cpp" />
+    <ClCompile Include="character_states\State_Jump_Backward.cpp" />
+    <ClCompile Include="character_states\State_Jump_Forward.cpp" />
+    <ClCompile Include="character_states\State_Jump_Up.cpp" />
+    <ClCompile Include="character_states\State_StandAttack1.cpp" />
+    <ClCompile Include="character_states\State_WalkingBackward.cpp" />
+    <ClCompile Include="character_states\State_WalkingForward.cpp" />
     <ClCompile Include="Collision.cpp" />
     <None Include="data\boxyboxerson\boxy_character_data.json" />
     <None Include="data\boxyboxerson\boxy_duck.json" />

@@ -28,14 +28,14 @@
       <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
       <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
     </Filter>
-    <Filter Include="Source Files\StateImplementations">
-      <UniqueIdentifier>{931782ea-aabf-4f6b-a0b1-26046509409c}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Header Files\Input">
       <UniqueIdentifier>{b10c24cb-3d6d-4681-bfb3-ccf96cb42457}</UniqueIdentifier>
     </Filter>
     <Filter Include="Source Files\Input">
       <UniqueIdentifier>{d33f7d66-9d43-43a5-9a57-e42890775858}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\CharacterStates">
+      <UniqueIdentifier>{931782ea-aabf-4f6b-a0b1-26046509409c}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -98,6 +98,33 @@
     </ClCompile>
     <ClCompile Include="Keyboard.cpp">
       <Filter>Source Files\Input</Filter>
+    </ClCompile>
+    <ClCompile Include="character_states\State_Idle.cpp">
+      <Filter>Source Files\CharacterStates</Filter>
+    </ClCompile>
+    <ClCompile Include="character_states\State_Duck.cpp">
+      <Filter>Source Files\CharacterStates</Filter>
+    </ClCompile>
+    <ClCompile Include="character_states\State_StandAttack1.cpp">
+      <Filter>Source Files\CharacterStates</Filter>
+    </ClCompile>
+    <ClCompile Include="character_states\State_WalkingForward.cpp">
+      <Filter>Source Files\CharacterStates</Filter>
+    </ClCompile>
+    <ClCompile Include="character_states\State_WalkingBackward.cpp">
+      <Filter>Source Files\CharacterStates</Filter>
+    </ClCompile>
+    <ClCompile Include="character_states\State_HitStun.cpp">
+      <Filter>Source Files\CharacterStates</Filter>
+    </ClCompile>
+    <ClCompile Include="character_states\State_Jump_Up.cpp">
+      <Filter>Source Files\CharacterStates</Filter>
+    </ClCompile>
+    <ClCompile Include="character_states\State_Jump_Forward.cpp">
+      <Filter>Source Files\CharacterStates</Filter>
+    </ClCompile>
+    <ClCompile Include="character_states\State_Jump_Backward.cpp">
+      <Filter>Source Files\CharacterStates</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

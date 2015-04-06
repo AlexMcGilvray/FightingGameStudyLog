@@ -151,7 +151,7 @@ class State_StandAttack1 : CharacterState
 public:
 	State_StandAttack1(Character & character,CharacterStateAnimation anim, const char * name ) : 
 		CharacterState(character,anim,name)
-	{ 
+	{
 
 	}
 
