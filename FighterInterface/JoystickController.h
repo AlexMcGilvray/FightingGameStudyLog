@@ -10,7 +10,7 @@ namespace Input
 		//typedefs
 		typedef unsigned char JoystickButton;  
 		//constants
-		const int JOYSTICK_HARDWARE_BUTTON_MAX = 10; //number of button indices we poll, currently an arbitrary value
+		const int JOYSTICK_HARDWARE_BUTTON_MAX = 30; //max number of button indices we poll, currently an arbitrary value
 		 
 
 		class JoystickRemapper

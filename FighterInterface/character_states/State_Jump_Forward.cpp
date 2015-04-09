@@ -23,4 +23,4 @@ void State_Jump_Forward::ResetState()
 		character.velocityX = -character.characterData->JumpData()->xVelocity;
 	else
 		character.velocityX = character.characterData->JumpData()->xVelocity;
-}  
+}

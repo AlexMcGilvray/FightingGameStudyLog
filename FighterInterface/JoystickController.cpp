@@ -93,10 +93,9 @@ Input::InputInfo Input::Joystick::JoystickController::Poll()
 			{
 				result.inputMapping[virtualIdx] = VIRTUAL_KEY_DOWN;
 			}
+			lastFrameHardwareButtons[virtualIdx] = glfwButtons[i];
 		}
-	}
-
-	
+	} 
 	return result;
 }
 

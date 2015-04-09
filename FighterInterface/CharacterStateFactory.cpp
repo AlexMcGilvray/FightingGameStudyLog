@@ -140,12 +140,15 @@ CharacterStateAnimation CharacterStateFactory::ParseCharacterAnimation(const cha
 		segments.push_back(segment);
 	}  
 	CharacterStateAnimation charAnim(character,looping,segments); 
-	delete fileContents;
-	fileContents = nullptr;
+	//cleanup
+	{
+		delete fileContents;
+		fileContents = nullptr;
+	} 
 	return charAnim;
 }
 
- 
+
 CharacterData * CharacterStateFactory::ParseCharacterData(const char * pathToDataDefinition)
 {
 	const char * fileContents = Utilities::GetTextFileContents(pathToDataDefinition);
@@ -170,7 +173,7 @@ CharacterData * CharacterStateFactory::ParseCharacterData(const char * pathToDat
 		//TODO make this data driven
 		movementDataConstants = new CharacterData_Movement_Constants(5.0f);
 	}
-	
+
 	//Parse and create jump data
 	{
 		const Value& v_jump_data = doc["jump_data"];
@@ -189,15 +192,17 @@ CharacterData * CharacterStateFactory::ParseCharacterData(const char * pathToDat
 		jumpData = new CharacterData_JumpData_Constants(xVelocity,yStartVelocity,yDecay,gravityMultiplier);
 	} 
 	CharacterData * characterData = new CharacterData(*generalData,*jumpData,*movementDataConstants);
-
-	delete fileContents;
-	fileContents = nullptr;
-	delete generalData;
-	generalData = nullptr;
-	delete jumpData;
-	jumpData = nullptr;
-	delete movementDataConstants;
-	movementDataConstants = nullptr;
+	//cleanup
+	{ 
+		delete fileContents;
+		fileContents = nullptr;
+		delete generalData;
+		generalData = nullptr;
+		delete jumpData;
+		jumpData = nullptr;
+		delete movementDataConstants;
+		movementDataConstants = nullptr;
+	}
 
 	return characterData;
 }
