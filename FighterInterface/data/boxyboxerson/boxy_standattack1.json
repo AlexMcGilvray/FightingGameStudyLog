@@ -5,7 +5,7 @@
 "frame_data": 
 	[  
 		{
-		"lifespan"		: 72,
+		"lifespan"		: 3,
 		"hitbox_body"	: 
 			{  
 				"x"		: 10,
@@ -27,7 +27,7 @@
 		}, 
 		 
 		{
-		"lifespan"		: 114,
+		"lifespan"		: 7,
 		"hitbox_body"	: 
 			{  
 				"x"		: 10,
