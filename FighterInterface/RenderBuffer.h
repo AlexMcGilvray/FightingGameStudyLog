@@ -18,8 +18,7 @@ private:
 	int mPosition;
 	int mCapacity;
 	T * data;
-	char * mTextureName;
-
+	char * mTextureName; 
 };
 
 template <typename T>

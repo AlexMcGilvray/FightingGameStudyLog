@@ -1,11 +1,9 @@
 #pragma once
 #include "IRenderable.h"
 #include "IUpdatable.h"
-
-
+ 
 namespace Graphics
-{ 
-
+{  
 	class Sprite : public IRenderable, public IUpdatable
 	{
 	public:
@@ -18,14 +16,12 @@ namespace Graphics
 	public:
 		Animation(void);
 		~Animation(void); 
-	};
-
+	}; 
 
 	class Frame
 	{
 	public:
 		Frame(void);
 		~Frame(void); 
-	};
-
+	}; 
 }

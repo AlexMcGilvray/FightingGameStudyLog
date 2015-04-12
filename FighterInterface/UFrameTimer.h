@@ -17,7 +17,6 @@ public:
 private:
 	int targetTime;
 	int currentTime;
-	bool running;
-
+	bool running; 
 };
 

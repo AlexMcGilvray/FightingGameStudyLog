@@ -75,6 +75,7 @@ IController * Input::CreateDefaultKeyboardControllerPlayer2()
 	return controller;
 } 
 
+//This is the correct layout for the qanba ps3 evo joystick, cant remember the real name
 IController * Input::CreateDefaultJoystickControllerPlayer1()
 {
 	Joystick::JoystickController * controller = new Joystick::JoystickController(); 

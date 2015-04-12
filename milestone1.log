@@ -1,0 +1,44 @@
+ebf752f,Alexander McGilvray,4 days ago,sped up boxy boxersons attack to a sane speed now that we have a fixed timestep update loop
+92fa9a3,Alexander McGilvray,4 days ago,Fixed a bug where the joystick press and release virtual key states were not setting correctly due to the array that contains the state of the buttons from the previous frame was never set.
+e08c724,Alexander McGilvray,6 days ago,setup character movement states to use character data. Also gave the data a value that works better with the fixed timestep that was implemented a while back. Characters dont move slow as hell now.
+633ad2f,Alexander McGilvray,6 days ago,setup factory section for movement data parsing. Right now it just assigns dummy values. The movement data schema needs to be designed before moving onto parsing the data.
+766096c,Alexander McGilvray,6 days ago,Added new character data movment constants section to character data
+1b64813,Alexander McGilvray,6 days ago,Finished the refactoring of moving all the character states into their own file
+d71a178,Alexander McGilvray,6 days ago,started moving character state implementations into their own files. First one is now done (ducking state)
+895d689,Alexander McGilvray,6 days ago,refactored out character utility functions into their own header
+4bc2ddd,Alexander McGilvray,6 days ago,refactored all remaning character states out into headers
+9757348,Alexander McGilvray,6 days ago,Refactored out the idle state into it's own cpp file
+6369f94,Alexander McGilvray,6 days ago,Created files to separate out the state logic from the factory class (it was just a temp place to get some logic up and going)
+05db6e3,Alexander McGilvray,7 days ago,added a joystick mapping for the qanba evo ps3 fightstick
+85e3e00,Alexander McGilvray,7 days ago,finished converting all current character data to have both a constant side and a mutable side
+6a18e3b,Alexander McGilvray,7 days ago,completed work on converting character data constans for general data. Still need to do jump data
+1d32f8f,Alexander McGilvray,7 days ago,splitting character data into a constants struct and a mutable data struct
+2a0a1b1,Alexander McGilvray,8 days ago,Added debug draw output for joysticks so you can see what hardware buttons are being pressed
+3e1d1e5,Alexander McGilvray,8 days ago,Fixed up the keyboard interface to have a previous frame state so we can determine when a button was just pressed or just released
+030c221,Alexander McGilvray,8 days ago,First working version of joystick button remapper
+aacbedd,Alexander McGilvray,8 days ago,Refactored button remapping getter
+688f6e7,Alexander McGilvray,8 days ago,Getting joystick remapping working
+2b66415,Alexander McGilvray,8 days ago,removed gamepad.h references
+ef03662,Alexander McGilvray,13 days ago,sync
+675e9bb,Alexander McGilvray,2 weeks ago,removing gamepad libs
+f4dd02b,Alexander McGilvray,2 weeks ago,removing the gamepad library includes since I'm using the built in GLFW stuff right now
+95dd934,Alexander McGilvray,2 weeks ago,got the joystick working, this is gonna get a lot more fun from here on
+f005e34,Alexander McGilvray,2 weeks ago,removed old non-fixed timestep dead code
+f3ee306,Alexander McGilvray,2 weeks ago,fixed crashes
+8ca9338,Alexander McGilvray,2 weeks ago,added joystick controller interfaces
+593a1c0,Alexander McGilvray,3 weeks ago,final joystick commit for the night
+e3eb43c,Alexander McGilvray,3 weeks ago,joystick button remapper interface
+fd81a79,Alexander McGilvray,3 weeks ago,basic implementation for joystick controller
+a7dfa59,Alexander McGilvray,3 weeks ago,ripped out the guts of the JoystickController interface because it was too bloated due to the fact it was originally an adaptation of the keyboard controller class. The joystick needs to be respected and given its own unique consideration in order to have a simpler interface and better management
+7254ecb,Alexander McGilvray,3 weeks ago,sending current work to remote so I can review it later from a different computer 2
+0fe9897,Alexander McGilvray,3 weeks ago,sending current work to remote so I can review it later from a different computer
+5c2d1be,Alexander McGilvray,3 weeks ago,setup some rough code for getting joystick states. The algo is in the comments at the start of the function
+64e42e6,Alexander McGilvray,3 weeks ago,added joystick button state and info structs
+b9bd79a,Alexander McGilvray,3 weeks ago,refactored and cleaned up input code
+6f4fb1a,Alexander McGilvray,3 weeks ago,Fixed namespaces on JoystickController and added hardweare ID member
+24951c0,Alexander McGilvray,4 weeks ago,Added a gloval keyboard manager interface with some slight refactoring to the input.h
+584e975,Alexander McGilvray,4 weeks ago,organization
+83e5841,Alexander McGilvray,4 weeks ago,Refactored JoystickController out into its own file
+186f526,Alexander McGilvray,4 weeks ago,Refactored KeyboardController out into its own file
+b35590c,Alexander McGilvray,4 weeks ago,editing project filters to have an input section
+fba1245,Alexander McGilvray,4 weeks ago,Refactored gamepad controller name to joystick controller

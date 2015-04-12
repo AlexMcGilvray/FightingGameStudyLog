@@ -62,11 +62,8 @@ UStack<T>::UStack(int cap ):
 	size(0),
 	capacity(cap)
 {
-	data = static_cast<T*> (::operator new (sizeof(T )* cap));
-	
+	data = static_cast<T*> (::operator new (sizeof(T )* cap)); 
 }
 
 template <typename T>
-UStack<T>::~UStack(void)
-{
-}
+UStack<T>::~UStack(void) { delete data; }

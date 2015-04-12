@@ -4,8 +4,7 @@
 #include "RenderBuffer.h"
 
 struct Primitive_Debug_Quad
-{
-
+{ 
 	float x,y,z;
 	float width,height; 
 	float r,g,b;
@@ -29,14 +28,9 @@ struct Primitive_Debug_Quad
 		r(r),
 		g(g),
 		b(b)
-	{
-
-	}
-
+	{ } 
 };
-
-
-
+ 
 namespace Render
 {  
 	//comes in as a ref to avoid 2 copies
