@@ -1,9 +1,7 @@
 #pragma once
 #define GLEW_STATIC
 #include <GL/glew.h>
-#include <GLFW/glfw3.h>
-
-
+#include <GLFW/glfw3.h> 
 #include "IUpdatable.h"
 #include "IRenderable.h"
 #include <vector>

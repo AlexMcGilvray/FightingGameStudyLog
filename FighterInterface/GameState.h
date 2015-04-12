@@ -13,10 +13,10 @@ class GameState :
 public:
 	GameState(void);
 	virtual ~GameState(void); 
-	virtual void Update(); 
-	virtual void UpdateGUI(); 
-	virtual void Render();
-	virtual void Init(); 
+	virtual void Init();
+	virtual void Update();
+	virtual void UpdateGUI();
+	virtual void Render(); 
 	Input::IController * controller;
 	Input::IController * controller2;
 	Character * character;
