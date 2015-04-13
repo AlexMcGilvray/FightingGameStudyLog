@@ -7,6 +7,14 @@ namespace
 	std::vector<LogEntry> logData;
 }
 
+
+//Character state debugging    
+bool DebuggingOptions::State_JumpForwardDebuggingEnabled = false;
+bool DebuggingOptions::State_JumpBackwardDebuggingEnabled = false;
+//TODO : Add a function to load debugging options from a file
+
+
+
 int CalculateIndexFromEndOfVector(int idx);
 
 int CalculateIndexFromEndOfVector(int idx) 
@@ -14,7 +22,7 @@ int CalculateIndexFromEndOfVector(int idx)
 	return logData.size() - 1 - idx ;
 }
 
- 
+
 std::string Debug::Logger::GetLogEntryText(int idx /*= 0*/) 
 {
 	int calcIdx = CalculateIndexFromEndOfVector(idx);

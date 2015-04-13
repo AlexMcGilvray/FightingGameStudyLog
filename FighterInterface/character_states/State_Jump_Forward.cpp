@@ -27,7 +27,7 @@ void State_Jump_Forward::ResetState()
 	else
 		character.velocityX = character.characterData->JumpData()->xVelocity;
 
-	if (Debug::DebuggingOptions::State_JumpForwardDebugging)
+	if (Debug::DebuggingOptions::State_JumpForwardDebuggingEnabled)
 	{
 		std::string str = Utilities::GetFormattedString(
 			"jump forward with start vel of %f and xVel of %f",
