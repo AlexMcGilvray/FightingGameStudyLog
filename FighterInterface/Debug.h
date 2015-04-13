@@ -18,5 +18,15 @@ namespace Debug
 		void Log(std::string entry); 
 		void LogAppend(std::string entry);
 	}; 
+
+	namespace DebuggingOptions
+	{
+		//Character state debugging
+		bool State_JumpForwardDebugging = false;
+		bool State_JumpBackwardDebugging = false;
+
+
+		//TODO : Add a function to load debugging options from a file
+	};
 };
 
