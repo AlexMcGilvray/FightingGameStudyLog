@@ -43,6 +43,18 @@
     <Filter Include="Source Files\Character">
       <UniqueIdentifier>{5f6af61b-175f-4571-aed2-afc80e09f240}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\View">
+      <UniqueIdentifier>{4d242cff-e34c-4e3a-8764-3a28f5753b35}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\View\Render">
+      <UniqueIdentifier>{63a5e558-d663-4ce6-aa93-66405c145684}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\View">
+      <UniqueIdentifier>{5dd7b26f-cada-401d-a96b-a3acf061c984}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\View\Render">
+      <UniqueIdentifier>{31b9ddf1-c019-4cb7-bfac-8c3def87135f}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Main.cpp">
@@ -61,9 +73,6 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="MenuState.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Render.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="GameState.cpp">
@@ -135,6 +144,9 @@
     <ClCompile Include="character_states\CharacterUtils.cpp">
       <Filter>Source Files\Character</Filter>
     </ClCompile>
+    <ClCompile Include="Render.cpp">
+      <Filter>Source Files\View\Render</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="IRenderable.h">
@@ -165,12 +177,6 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="MenuState.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Render.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="RenderBuffer.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="GameState.h">
@@ -220,6 +226,12 @@
     </ClInclude>
     <ClInclude Include="character_states\CharacterUtils.h">
       <Filter>Header Files\Character</Filter>
+    </ClInclude>
+    <ClInclude Include="Render.h">
+      <Filter>Header Files\View\Render</Filter>
+    </ClInclude>
+    <ClInclude Include="RenderBuffer.h">
+      <Filter>Header Files\View\Render</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

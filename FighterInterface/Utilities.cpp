@@ -1,7 +1,6 @@
 #include "Utilities.h" 
 #include <fstream>  
-
-
+ 
 namespace Utilities
 { 
 	const char * GetTextFileContents(const char * filename)
@@ -18,6 +17,4 @@ namespace Utilities
 		t.close(); 
 		return buffer;
 	}  
-
- 
 }

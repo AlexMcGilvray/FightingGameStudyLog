@@ -2,9 +2,9 @@
 "name" : "Boxy Boxerson", 
 "jump_data": 
 	{ 
-		"x_velocity" : 19,
-		"y_start_velocity" : 22,
-		"y_decay" : 0.6,
+		"x_velocity" : 9,
+		"y_start_velocity" : 33,
+		"y_decay" : 1,
 		"gravity_multiplier" : 1
 	}
 }
