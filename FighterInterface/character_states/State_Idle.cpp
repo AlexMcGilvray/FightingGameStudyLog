@@ -1,6 +1,6 @@
 #include "CharacterUtils.h"
 #include "../CharacterStates.h"
-#include "../CharacterState.h"
+#include "../CharacterState.h" 
 
 void State_Idle::UpdateState(InputInfo & inputInfo)
 {
@@ -22,7 +22,7 @@ void State_Idle::UpdateState(InputInfo & inputInfo)
 
 	if (inputInfo.inputMapping[InputValue::UP] == InputState::VIRTUAL_KEY_DOWN)
 	{ 
-		character.state.ChangeState(JUMP_UP);
+		character.state.ChangeState(JUMP_UP); 
 	}
 	else if (inputInfo.inputMapping[InputValue::DOWN] == InputState::VIRTUAL_KEY_DOWN)
 	{ 

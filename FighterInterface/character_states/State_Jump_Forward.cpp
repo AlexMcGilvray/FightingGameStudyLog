@@ -2,6 +2,8 @@
 #include "../CharacterStates.h"
 #include "../CharacterState.h"
 #include "../GameData.h"
+#include "../Debug.h"
+#include "../Utilities.h"
 
 void State_Jump_Forward::UpdateState(InputInfo & inputInfo)
 {
@@ -15,6 +17,7 @@ void State_Jump_Forward::UpdateState(InputInfo & inputInfo)
 
 void State_Jump_Forward::ResetState()
 {
+	
 	CharacterState::ResetState();
 	animation.Reset();
 	animation.Start(); 
@@ -23,4 +26,10 @@ void State_Jump_Forward::ResetState()
 		character.velocityX = -character.characterData->JumpData()->xVelocity;
 	else
 		character.velocityX = character.characterData->JumpData()->xVelocity;
+
+	std::string str = Utilities::GetFormattedString(
+		"jump forward with start vel of %f and xVel of %f",
+		character.characterData->JumpData()->yStartVelocity,
+		character.characterData->JumpData()->xVelocity);
+	Debug::Logger::Log(str);
 }
