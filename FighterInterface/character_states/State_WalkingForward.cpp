@@ -28,10 +28,12 @@ void State_WalkingForward::UpdateState(InputInfo & inputInfo)
 	else if (IsWalkingBackwards(character,inputInfo))
 	{
 		character.state.ChangeState(WALKING_BACKWARD);  
+		return;
 	} 
 	else
 	{
 		character.state.ChangeState(STAND); 
+		return;
 	} 
 }
 

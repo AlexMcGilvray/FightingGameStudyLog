@@ -6,9 +6,15 @@ void State_WalkingBackward::UpdateState(InputInfo & inputInfo)
 {
 	CharacterState::UpdateState(inputInfo);
 	if (IsJumpingForward(character,inputInfo))
+	{
 		character.state.ChangeState(JUMP_FORWARD); 
+		return;
+	}
 	else if (IsJumpingBackwards(character,inputInfo))
+	{
 		character.state.ChangeState(JUMP_BACKWARD); 
+		return;
+	}
 
 	float xVel = character.characterData->MovementConstants()->XVelocityDefault();
 
@@ -22,10 +28,12 @@ void State_WalkingBackward::UpdateState(InputInfo & inputInfo)
 	else if (IsWalkingForward(character,inputInfo))
 	{
 		character.state.ChangeState(WALKING_FORWARD);  
+		return;
 	} 
 	else
 	{
 		character.state.ChangeState(STAND); 
+		return;
 	}
 }
 

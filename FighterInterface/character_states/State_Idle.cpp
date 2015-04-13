@@ -19,20 +19,30 @@ void State_Idle::UpdateState(InputInfo & inputInfo)
 	}
 
 	if (IsWalkingForward(character,inputInfo))
+	{
 		character.state.ChangeState(WALKING_FORWARD); 
+		return;
+	}
 	else if (IsWalkingBackwards(character,inputInfo))
+	{
 		character.state.ChangeState(WALKING_BACKWARD);  
+		return;
+	}
 	else if (inputInfo.inputMapping[InputValue::BTN1] == InputState::VIRTUAL_KEY_PRESSED) 
+	{
 		character.state.ChangeState(STAND_ATTACK_1);  
-
+		return;
+	} 
 
 	if (inputInfo.inputMapping[InputValue::UP] == InputState::VIRTUAL_KEY_DOWN)
 	{ 
 		character.state.ChangeState(JUMP_UP); 
+		return;
 	}
 	else if (inputInfo.inputMapping[InputValue::DOWN] == InputState::VIRTUAL_KEY_DOWN)
 	{ 
 		character.state.ChangeState(DUCK);
+		return;
 	} 
 }
 
