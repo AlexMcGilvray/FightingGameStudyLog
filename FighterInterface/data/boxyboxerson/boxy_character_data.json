@@ -5,6 +5,6 @@
 		"x_velocity" : 9,
 		"y_start_velocity" : 33,
 		"y_decay" : 1,
-		"gravity_multiplier" : 1
+		"gravity_multiplier" : 0.3
 	}
 }
