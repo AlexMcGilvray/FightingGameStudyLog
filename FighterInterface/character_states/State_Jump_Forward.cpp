@@ -16,11 +16,11 @@ void State_Jump_Forward::UpdateState(InputInfo & inputInfo)
 }
 
 void State_Jump_Forward::ResetState()
-{
-	
+{ 
 	CharacterState::ResetState();
 	animation.Reset();
 	animation.Start(); 
+
 	character.velocityY = -character.characterData->JumpData()->yStartVelocity;  
 	if (character.Facing() == CharacterFacing::LEFT)
 		character.velocityX = -character.characterData->JumpData()->xVelocity;
@@ -29,7 +29,7 @@ void State_Jump_Forward::ResetState()
 
 	std::string str = Utilities::GetFormattedString(
 		"jump forward with start vel of %f and xVel of %f",
-		character.characterData->JumpData()->yStartVelocity,
-		character.characterData->JumpData()->xVelocity);
+		character.velocityY,
+		character.velocityX);
 	Debug::Logger::Log(str);
 }
