@@ -18,6 +18,5 @@ void State_Jump_Up::ResetState()
 	CharacterState::ResetState();
 	animation.Reset();
 	animation.Start(); 
-	character.velocityY = -character.characterData->JumpDataConstants()->YStartVelocity();
-
+	character.velocityY = -character.characterData->JumpDataConstants()->YStartVelocity(); 
 }  
