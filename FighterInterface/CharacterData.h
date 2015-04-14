@@ -13,10 +13,10 @@ struct CharacterData_JumpData <-- these values are used in gameplay and are muta
 /************************************************************************/
 struct CharacterData_JumpData_Constants
 { 
-	inline float XVelocityDefault(){ return xVelocityDefault; }
-	inline float YStartVelocity(){ return yStartVelocity; }
-	inline float YDecay(){ return yDecay; }
-	inline float GravityMultiplier(){ return gravityMultiplier; }
+	inline float XVelocityDefault() const { return xVelocityDefault; }
+	inline float YStartVelocity() const { return yStartVelocity; }
+	inline float YDecay() const { return yDecay; }
+	inline float GravityMultiplier() const { return gravityMultiplier; }
 	CharacterData_JumpData_Constants
 		(float xVelocityDefault,
 		float yStartVelocity,
@@ -46,7 +46,7 @@ struct CharacterData_JumpData
 
 struct CharacterData_Movement_Constants
 {
-	inline float XVelocityDefault(){ return xVelocityDefault; }
+	inline float XVelocityDefault() const { return xVelocityDefault; }
 	CharacterData_Movement_Constants
 		(float xVelocityDefault ):
 	xVelocityDefault(xVelocityDefault) 
@@ -64,8 +64,8 @@ struct CharacterData_GeneralData
 
 struct CharacterData_GeneralData_Constants
 {
-	inline const char * Name(){return name.c_str();}
-	inline const int HealthMax(){return healthMax;}
+	inline const char * Name() const {return name.c_str();}
+	inline const int HealthMax() const {return healthMax;}
 	CharacterData_GeneralData_Constants(char * name, int healthMax):
 		name(name),
 		healthMax(healthMax)
