@@ -18,6 +18,9 @@ void State_Jump_Backward::UpdateState(InputInfo & inputInfo)
 void State_Jump_Backward::ResetState()
 {
 	CharacterState::ResetState();
+	animation.Reset();
+	animation.Start();  
+	character.ZeroVelocity();
 	character.velocityY = -character.characterData->JumpDataConstants()->YStartVelocity(); 
 	if (character.Facing() == CharacterFacing::LEFT)
 		character.velocityX = character.characterData->JumpData()->xVelocity;

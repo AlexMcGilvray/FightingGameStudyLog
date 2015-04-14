@@ -66,7 +66,7 @@ private:
 	int currentFrame;
 	bool started;
 	bool looping;
-	int currentFrameTime  ;
+	int currentFrameTime;
 	bool complete;
 	//maybe have this so that a hit on the same hitbox wont occur multiple times
 	//bool hasAppliedHitboxes; 

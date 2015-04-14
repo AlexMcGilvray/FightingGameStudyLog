@@ -83,7 +83,10 @@ class State_Jump_Forward : CharacterState
 { 
 public:
 	State_Jump_Forward(Character & character,CharacterStateAnimation anim, const char * name)  : 
-		CharacterState(character,anim,name)  { }
+		CharacterState(character,anim,name)
+	{
+		AffectedByGravity(false);
+	}
 
 	virtual void UpdateState(InputInfo & inputInfo) override;  
 	virtual void ResetState() override; 
@@ -94,7 +97,10 @@ class State_Jump_Backward : CharacterState
 { 
 public:
 	State_Jump_Backward(Character & character,CharacterStateAnimation anim, const char * name)  : 
-		CharacterState(character,anim,name)  { }
+		CharacterState(character,anim,name)
+	{
+		AffectedByGravity(false);
+	}
 
 	virtual void UpdateState(InputInfo & inputInfo) override;   
 	virtual void ResetState() override;  

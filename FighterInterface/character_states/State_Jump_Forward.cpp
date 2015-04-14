@@ -19,9 +19,9 @@ void State_Jump_Forward::ResetState()
 { 
 	CharacterState::ResetState();
 	animation.Reset();
-	animation.Start(); 
-
-	character.velocityY = -character.characterData->JumpDataConstants()->YStartVelocity();
+	animation.Start();  
+	character.ZeroVelocity();
+	character.velocityY = -character.characterData->JumpDataConstants()->YStartVelocity(); 
 	if (character.Facing() == CharacterFacing::LEFT)
 		character.velocityX = -character.characterData->JumpData()->xVelocity;
 	else

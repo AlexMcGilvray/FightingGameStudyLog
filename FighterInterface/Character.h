@@ -33,6 +33,8 @@ public:
 
 	Input::IController * controller; 
 
+	void ZeroVelocity() {velocityX = 0; velocityY = 0;}
+
 	int playerNumber;
 	float x,y; //center bottom of the character. 
 	bool visible;
