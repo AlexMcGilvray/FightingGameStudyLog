@@ -241,12 +241,6 @@
     <None Include="data\boxyboxerson\boxy_idle.json">
       <Filter>Data\CharacterStateDefinitions\BoxyBoxerson</Filter>
     </None>
-    <None Include="data\boxyboxerson\boxy_standattack1.json">
-      <Filter>Data\CharacterStateDefinitions\BoxyBoxerson</Filter>
-    </None>
-    <None Include="data\boxyboxerson\boxy_walkingforward.json">
-      <Filter>Data\CharacterStateDefinitions\BoxyBoxerson</Filter>
-    </None>
     <None Include="data\boxyboxerson\boxy_walking_backward.json">
       <Filter>Data\CharacterStateDefinitions\BoxyBoxerson</Filter>
     </None>
@@ -262,5 +256,7 @@
     <None Include="data\boxyboxerson\boxy_character_data.json">
       <Filter>Data\CharacterStateDefinitions\BoxyBoxerson</Filter>
     </None>
+    <None Include="data\boxyboxerson\boxy_walking_forward.json" />
+    <None Include="data\boxyboxerson\boxy_stand_attack_1.json" />
   </ItemGroup>
 </Project>
