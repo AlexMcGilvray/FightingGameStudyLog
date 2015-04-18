@@ -24,7 +24,7 @@ CharacterState * CharacterStateFactory::GetCharacterState(CharacterStateType typ
 	case STAND:
 		return(CharacterState *)( new State_Idle(character,ParseCharacterAnimation("data\\boxyboxerson\\boxy_idle.json",character),"Standing"));
 	case WALKING_FORWARD:
-		return(CharacterState *)( new State_WalkingForward(character,ParseCharacterAnimation("data\\boxyboxerson\\boxy_walkingforward.json",character),"Walking Forward"));
+		return(CharacterState *)( new State_WalkingForward(character,ParseCharacterAnimation("data\\boxyboxerson\\boxy_walking_forward.json",character),"Walking Forward"));
 	case WALKING_BACKWARD:
 		return(CharacterState *)( new State_WalkingBackward(character,ParseCharacterAnimation("data\\boxyboxerson\\boxy_walking_backward.json",character),"Walking Backward"));
 	case JUMP_UP:
