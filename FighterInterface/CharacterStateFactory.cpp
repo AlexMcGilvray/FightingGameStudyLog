@@ -36,7 +36,7 @@ CharacterState * CharacterStateFactory::GetCharacterState(CharacterStateType typ
 	case DUCK:
 		return(CharacterState *)( new State_Duck(character,ParseCharacterAnimation("data\\boxyboxerson\\boxy_duck.json",character),"Walking Backward"));
 	case STAND_ATTACK_1:
-		return(CharacterState *)( new State_StandAttack1(character,ParseCharacterAnimation("data\\boxyboxerson\\boxy_standattack1.json",character),"Stand Attack 1"));
+		return(CharacterState *)( new State_StandAttack1(character,ParseCharacterAnimation("data\\boxyboxerson\\boxy_stand_attack_1.json",character),"Stand Attack 1"));
 	case STAND_ATTACK_2:
 		break; 
 	case HIT_STUN:
